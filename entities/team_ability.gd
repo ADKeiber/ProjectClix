@@ -1,0 +1,2 @@
+class_name TeamAbility
+extends GameElement

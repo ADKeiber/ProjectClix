@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bttq6r5kvi3na"]
+
+[ext_resource type="Script" uid="uid://cthxf1jxcg2n2" path="res://ui/game_object_import.gd" id="1_b606i"]
+
+[node name="GameObjectImport" type="HBoxContainer" unique_id=1581115106]
+alignment = 1
+script = ExtResource("1_b606i")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=729251471]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="FigureUrlLabel" type="Label" parent="MarginContainer" unique_id=622782591]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1:"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1316266442]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer2" unique_id=2120270375]
+layout_mode = 2
+selected = 0
+item_count = 8
+popup/item_0/text = "Figure"
+popup/item_0/id = 0
+popup/item_1/text = "Special Object"
+popup/item_1/id = 1
+popup/item_2/text = "One Shot"
+popup/item_2/id = 2
+popup/item_3/text = "Terrain"
+popup/item_3/id = 3
+popup/item_4/text = "Terrain Marker"
+popup/item_4/id = 4
+popup/item_5/text = "Bystander"
+popup/item_5/id = 5
+popup/item_6/text = "Equipment"
+popup/item_6/id = 6
+popup/item_7/text = "Map"
+popup/item_7/id = 7
+
+[node name="PlayerNameInput" type="LineEdit" parent="." unique_id=1396035150]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="item_selected" from="MarginContainer2/OptionButton" to="." method="_on_option_button_item_selected"]

@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://b32wph07ls0wx"]
+
+[ext_resource type="Script" uid="uid://b60xscw1abjij" path="res://ui/session_creator.gd" id="1_sff7n"]
+[ext_resource type="Theme" uid="uid://ky15a3heacmo" path="res://ui/box_theme.tres" id="2_hepcj"]
+
+[node name="SessionCreator" type="Control" unique_id=478397817]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchor_right = 0.469
+anchor_bottom = 0.48100004
+offset_right = 3.5199585
+offset_bottom = 3.5199585
+script = ExtResource("1_sff7n")
+
+[node name="Panel" type="Panel" parent="." unique_id=1722201006]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.998
+offset_right = -2.0
+offset_bottom = 0.045959473
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_hepcj")
+
+[node name="HostVBoxContainer" type="VBoxContainer" parent="." unique_id=909749069]
+layout_mode = 0
+offset_right = 901.0
+offset_bottom = 490.0
+
+[node name="JoinCode" type="HBoxContainer" parent="HostVBoxContainer" unique_id=462783121]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HostVBoxContainer/JoinCode" unique_id=764036879]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 15
+
+[node name="JoinCodeLabel" type="Label" parent="HostVBoxContainer/JoinCode/MarginContainer" unique_id=773559419]
+layout_mode = 2
+text = "Join Code:"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HostVBoxContainer/JoinCode" unique_id=1718182850]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 15
+
+[node name="JoinCodeValue" type="Label" parent="HostVBoxContainer/JoinCode/MarginContainer2" unique_id=1345490595]
+unique_name_in_owner = true
+layout_mode = 2
+text = "---------"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HostVBoxContainer/JoinCode" unique_id=692073280]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 15
+
+[node name="CopyButton" type="Button" parent="HostVBoxContainer/JoinCode/MarginContainer3" unique_id=323505024]
+layout_mode = 2
+text = "Generate + Copy"
+
+[node name="PlayerName" type="HBoxContainer" parent="HostVBoxContainer" unique_id=69470567]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HostVBoxContainer/PlayerName" unique_id=1569306739]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 50
+
+[node name="PlayerNameLabel" type="Label" parent="HostVBoxContainer/PlayerName/MarginContainer" unique_id=1869906006]
+layout_mode = 2
+text = "Player Name:"
+
+[node name="PlayerNameInput" type="LineEdit" parent="HostVBoxContainer/PlayerName" unique_id=964215173]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_length = 24
+
+[node name="NumberOfPlayers" type="HBoxContainer" parent="HostVBoxContainer" unique_id=566992056]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HostVBoxContainer/NumberOfPlayers" unique_id=218667505]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 15
+
+[node name="NumberOfPlayersLabel" type="Label" parent="HostVBoxContainer/NumberOfPlayers/MarginContainer" unique_id=1513740918]
+layout_mode = 2
+text = "Number of Players:"
+
+[node name="NumberOfPlayersDropdown" type="OptionButton" parent="HostVBoxContainer/NumberOfPlayers" unique_id=266785935]
+layout_mode = 2
+selected = 0
+item_count = 7
+popup/item_0/text = "2"
+popup/item_0/id = 0
+popup/item_1/text = "3"
+popup/item_1/id = 1
+popup/item_2/text = "4"
+popup/item_2/id = 2
+popup/item_3/text = "5"
+popup/item_3/id = 3
+popup/item_4/text = "6"
+popup/item_4/id = 4
+popup/item_5/text = "7"
+popup/item_5/id = 5
+popup/item_6/text = "8"
+popup/item_6/id = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HostVBoxContainer" unique_id=1242054388]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HostVBoxContainer/HBoxContainer" unique_id=1529237333]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+
+[node name="CreateSessionButton" type="Button" parent="HostVBoxContainer/HBoxContainer/MarginContainer" unique_id=156730066]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Create Game Session"
+
+[node name="JoinVBoxContainer" type="VBoxContainer" parent="." unique_id=379864112]
+visible = false
+layout_mode = 0
+offset_right = 901.0
+offset_bottom = 490.0
+
+[node name="PlayerName" type="HBoxContainer" parent="JoinVBoxContainer" unique_id=451829233]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="JoinVBoxContainer/PlayerName" unique_id=1808272568]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 50
+
+[node name="PlayerNameLabel" type="Label" parent="JoinVBoxContainer/PlayerName/MarginContainer" unique_id=207335522]
+layout_mode = 2
+text = "Player Name:"
+
+[node name="PlayerNameJoinInput" type="LineEdit" parent="JoinVBoxContainer/PlayerName" unique_id=211026995]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_length = 24
+
+[node name="JoinCode" type="HBoxContainer" parent="JoinVBoxContainer" unique_id=1164778763]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="JoinVBoxContainer/JoinCode" unique_id=1579608229]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="PlayerNameLabel" type="Label" parent="JoinVBoxContainer/JoinCode/MarginContainer" unique_id=275612616]
+layout_mode = 2
+text = "Join Code:"
+
+[node name="JoinCodeInput" type="LineEdit" parent="JoinVBoxContainer/JoinCode" unique_id=2021615428]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_length = 24
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="JoinVBoxContainer" unique_id=2071603962]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="JoinVBoxContainer/HBoxContainer2" unique_id=1046322801]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+
+[node name="JoinSessionButton" type="Button" parent="JoinVBoxContainer/HBoxContainer2/MarginContainer" unique_id=214143624]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Join Game Session"
+
+[node name="HostButton" type="Button" parent="." unique_id=1333558122]
+layout_mode = 0
+offset_top = 490.0
+offset_right = 450.0
+offset_bottom = 521.0
+theme = ExtResource("2_hepcj")
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="." unique_id=1816300692]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 490.0
+offset_right = 901.0
+offset_bottom = 521.0
+text = "Join"
+
+[connection signal="pressed" from="HostVBoxContainer/JoinCode/MarginContainer3/CopyButton" to="." method="_on_copy_button_pressed"]
+[connection signal="pressed" from="HostVBoxContainer/HBoxContainer/MarginContainer/CreateSessionButton" to="." method="_on_create_session_button_pressed"]
+[connection signal="pressed" from="JoinVBoxContainer/HBoxContainer2/MarginContainer/JoinSessionButton" to="." method="_on_join_session_button_pressed"]
+[connection signal="pressed" from="HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_button_pressed"]

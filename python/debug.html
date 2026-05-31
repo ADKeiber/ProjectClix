@@ -1,0 +1,748 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+<script>
+  const theme = localStorage.getItem('theme');
+  if (theme) {
+    document.documentElement.setAttribute('theme', theme);
+  }
+</script>
+<head>
+  
+  <style>
+    .material-icons,
+    .material-symbols-outlined {
+      max-width: 24px;
+      overflow: hidden;
+    }
+  </style>
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://storage.googleapis.com/static.hcunits.net/3p/mdb-9.2.0/css/mdb.min.css"/>
+  
+  <link href="https://fonts.cdnfonts.com/css/gill-sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="https://storage.googleapis.com/static.hcunits.net/3p/dicefont/dicefont.css">
+  <link type="text/css" rel="stylesheet" href="https://storage.googleapis.com/static.hcunits.net/3p/scroller/scroller.css">
+
+
+  <link rel="stylesheet" href="https://storage.googleapis.com/static.hcunits.net/CACHE/css/output.7691090f3193.css" type="text/css">
+
+  
+  
+  
+<meta name="viewport" content="width=735">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="creator" content="Clay Wood">
+  <meta property="og:type" content="website" />
+  <meta property="fb:app_id" content="183976117793735" />
+  
+  
+  <meta property="og:url" content="https://hcunits.net/units/ve010/" />
+  <meta property="og:title" content="Black Widow" />
+  <meta property="og:description" content="" />
+  
+  <meta property="og:image" content="https://storage.googleapis.com/static.hcunits.net/images/set/ve/010.png?enlarge=1&w=200" />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="200" />
+  
+  
+
+  <title>Explore HeroClix Units - HCUnits</title>
+  <link rel="icon" type="image/x-icon" href="https://storage.googleapis.com/static.hcunits.net/images/logo/favicon.ico">
+  
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HCP4E8DV7L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HCP4E8DV7L');
+
+  {
+    const currentTheme = localStorage.theme;
+    if (["light", "dark", "system"].includes(currentTheme)) {
+      document.documentElement.dataset.mdbTheme = currentTheme;
+    }
+
+    if (window.innerWidth < 992) {
+      document.documentElement.dataset.mdbMode = "over";
+      document.documentElement.dataset.mdbHidden = true;
+    }
+  }
+</script>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-sm bg-body-tertiary" data-theme="light">
+      <div class="container-fluid">
+        
+        
+        <a class="navbar-brand me-2" href="/">
+          <img id="hcunitsLogo" src="https://storage.googleapis.com/static.hcunits.net/images/logo/logo_2x1.svg" alt="HCUnits" height="46">
+        </a>
+        <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarCollapse">
+          <i class="material-icons">menu</i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-lg-0">
+            <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle hidden-arrow" role="button" data-mdb-dropdown-init>
+                <b>Units</b>
+              </a>
+              <form id="createCustomUnitForm" method="post" action="/custom_units/">
+                <input type="hidden" name="csrfmiddlewaretoken" value="gl64GBXzx6LWAQZ4eCyHq3AS4SM1USmUtehtCFJKXtyof93HtxSuk4jBrTFDkExz">
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="/units/" class="dropdown-item">
+                      <i class="material-icons me-2">person</i>
+                      Browse
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/meta/" class="dropdown-item">
+                      <i class="material-symbols-outlined me-2">trending_up</i>
+                      Meta
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li>
+                    <a href="/custom_units/" class="dropdown-item">
+                      <i class="material-symbols-outlined me-2">person_edit</i>
+                      Custom Units
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" onclick="document.getElementById('createCustomUnitForm').submit();">
+                      <i class="material-icons me-2">add_circle</i>
+                      Create Custom Unit
+                    </a>
+                  </li>
+                </ul>
+              </form>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle hidden-arrow" role="button" data-mdb-dropdown-init>
+                Teams
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/teams/" class="dropdown-item">
+                    <i class="material-icons me-2">group</i>
+                    Browse
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a href="/users/me/teams/" class="dropdown-item">
+                    <i class="material-symbols-outlined me-2">group</i>
+                    My Teams
+                  </a>
+                </li>
+                <li>
+                  <a href="/teams/create/" class="dropdown-item">
+                    <i class="material-icons me-2">add_circle</i>
+                    Create Team
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle hidden-arrow" role="button" data-mdb-dropdown-init>
+                Events
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="/events/">
+                    <i class="material-symbols-outlined me-2">event</i>
+                    Events
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/events/create/">
+                    <i class="material-symbols-outlined me-2">calendar_add_on</i>
+                    Create Event
+                  </a>
+                </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                <li>
+                  <a class="dropdown-item" href="/venues/">
+                    <i class="material-icons me-2">store</i>
+                    Venues
+                  </a>
+                </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                <li>
+                  <a class="dropdown-item" href="/circuits/">
+                    <i class="material-icons me-2">calendar_month</i>
+                    Circuits
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle hidden-arrow" role="button" data-mdb-dropdown-init>
+                Info
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="/info/related/">
+                    <i class="material-icons me-2">travel_explore</i>
+                    Related Sites
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/info/rules/">
+                    <i class="material-icons me-2">gavel</i>
+                    Rules
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/info/social_media/">
+                    <i class="material-icons me-2">podcasts</i>
+                    Social Media
+                  </a>
+                </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                <li>
+                  <a class="dropdown-item" href="/users/">
+                    <i class="material-symbols-outlined me-2">data_loss_prevention</i>
+                    Users
+                  </a>
+                </li>
+                </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                <li>
+                  <a class="dropdown-item" href="/updates/">
+                    <i class="material-symbols-outlined me-2">update</i>
+                    Site Updates
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/help/">
+                    <i class="material-icons me-2">help</i>
+                    Help
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <div class="dropdown">
+              <button id="colorModeDropdown"
+                      type="button"
+                      class="btn btn-link nav-link py-2 px-2 px-lg-2 dropdown-toggle hidden-arrow d-flex align-items-center"
+                      data-mdb-display="static"
+                      data-mdb-dropdown-init>
+                <i class="material-icons"></i>
+              </button>
+              <ul id="colorModeDropdownMenu" class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <button type="button" class="dropdown-item" data-theme-switch-item-ref data-theme="light">
+                    <i data-theme-icon="light" class="material-icons me-2">light_mode</i>
+                    <span>Light</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item" data-theme-switch-item-ref data-theme="dark">
+                    <i data-theme-icon="dark" class="material-icons me-2">dark_mode</i>
+                    <span>Dark</span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="dropdown-item" data-theme-switch-item-ref data-theme="system">
+                    <i data-theme-icon="system" class="material-icons me-2">contrast</i>
+                    <span>Auto</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="nav-item">
+              <a href="/accounts/login/?next=/units/ve010/" class="btn btn-link nav-link px-2 d-flex flex-row align-items-center">
+                <i class="material-icons me-2">login</i>
+                Login
+              </a>
+            </div>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  <main class="d-flex flex-column flex-grow-1" style="height:0;">
+    
+    
+    <div id="mainContentHeaderContainer"
+         class="d-flex flex-column flex-grow-1 position-relative overflow-x-hidden " style="height:0;">
+      
+<div id="exploreTabBar">
+  <ul id="exploreTabList" class="nav nav-tabs nav-justified" role="tablist">
+    <li class="nav-item" role="presentation" data-mdb-tooltip-init title="Browse by Set">
+      <a class="nav-link active"
+         id="setListPanelTab"
+         role="tab"
+         href="#setListPanel"
+         data-mdb-tab-init>
+        <i class="material-icons">library_books</i>
+      </a>
+    </li>
+    <li class="nav-item" role="presentation" style="display:none;">
+      <a class="nav-link"
+         id="unitListPanelTab"
+         role="tab"
+         href="#unitListPanel"
+         data-mdb-tab-init>
+      </a>
+    </li>
+    <li class="nav-item" role="presentation" data-mdb-tooltip-init title="Advanced Search">
+      <a class="nav-link"
+         id="advancedSearchPanelTab"
+         role="tab"
+         href="#advancedSearchPanel"
+         data-mdb-tab-init>
+        <i class="material-icons">manage_search</i>
+      </a>
+    </li>
+    
+  </ul>
+  <div id="quickSearchBox" class="container-fluid quickSearchBox">
+    <form class="d-flex" role="search">
+      <input class="form-control" type="search" spellcheck="false" placeholder="Search for Units">
+      <button class="btn btn-outline-success" type="submit">
+        <i class="material-icons">search</i>
+      </button>
+    </form>
+  </div>
+</div>
+
+      
+<div class="d-flex flex-grow-1"
+     style="height:0;">
+  
+<div id="panelManager">
+  <div id="panelManagerHeader">
+    <a id="panelManagerBackButton"
+       class="panelManagerButton text-decoration-none justify-content-center"
+       data-mdb-tooltip-init
+       title="Back"
+       style="visibility:hidden;">
+      <i class="material-icons">arrow_back</i>
+    </a>
+    <div id="panelManagerTitleContainer" class="d-flex align-items-center flex-grow-1 px-1" style="height:60px;">
+      <div id="panelManagerTitle"></div>
+    </div>
+    <a id="panelManagerAddSavedSearchButton"
+       class="panelManagerButton justify-content-center"
+       data-mdb-tooltip-init
+       title="Save Search"
+       style="display:none;">
+      <i class="material-icons">zoom_in</i>
+    </a>
+    <div id="panelManagerSortOrderButton"
+         class="panelManagerButton dropdown"
+         style="visibility:hidden;">
+      <a class="dropdown-toggle text-decoration-none w-100 h-100 d-flex align-items center justify-content-center text-white"
+         role="button"
+         data-mdb-dropdown-init>
+        <i class="material-icons"
+           data-mdb-tooltip-init
+           title="Sort Order">
+          sort
+        </i>
+      </a>
+      <ul id="panelManagerSortOrderDropdown" class="dropdown-menu"></ul>
+    </div>
+  </div>
+  
+	<a onclick="panelManager.togglePanelManager()">
+    <div id="panelManagerToggle">
+		  <i id="panelManagerToggleIcon" class="material-icons">chevron_left</i>
+    </div>
+	</a>
+  
+
+  
+  <div class="tab-content d-flex flex-column flex-grow-1 overflow-y-auto">
+    <div id="setListPanel" class="tab-pane fade show active"></div>
+    <div id="advancedSearchPanel" class="tab-pane fade" role="tabpanel">
+      <div id="addSearchOptionContainer">
+        <div class="dropdown">
+          <button id="addSearchOptionButton" class="btn btn-primary dropdown-toggle" type="button" data-mdb-dropdown-init>
+            <i class="material-icons">add</i>
+          </button>
+          <ul id="addSearchOptionDropdownMenu" class="dropdown-menu">
+          </ul>
+        </div>
+      </div>
+      <ul id="searchOptions" class="list-group">
+        <li id="advancedSearchFooter" class="list-group-item p-0" style="display:none;">
+          <div id="advancedSearchFooterOptions">
+            <div class="select-wrapper flex-grow-1 ms-1 me-1">
+              <select id="searchOptionsClickTypeSelect" data-mdb-select-init>
+                <option value="starting_click">Starting Click</option>
+                <option value="last_click">Last Non-KO Click</option>
+                <option value="">Any Click</option>
+              </select>
+              <label class="form-label select-label">Click Type</label>
+            </div>
+          </div>
+          <div id="advancedSearchFooterButtons">
+            <a class="panelManagerButton advancedSearchFooterButton d-flex align-items-center justify-content-center" onclick="panelManager.resetAdvancedSearch(); return false;" data-mdb-tooltip-init title="Reset Options">
+              <i class="material-icons">restart_alt</i>
+            </a>
+            <a class="panelManagerButton advancedSearchFooterButton d-flex align-items-center justify-content-center" onclick="panelManager.showAdvancedSearchResults(); return false;" data-mdb-tooltip-init title="Search">
+              <i class="material-icons">search</i>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="unitListPanel" class="tab-pane fade" role="tabpanel"></div>
+    
+  </div>
+  
+  
+  <div id="panelManagerFooter" style="display:none">
+    <a id="panelManagerPreviousPage" class="btn panelManagerButton d-flex align-items-center justify-content-center flex-grow-1" onclick="panelManager.previousPage(); return false;" data-mdb-tooltip-init title="Previous Page">
+      <i class="material-symbols-outlined" style="font-size:38px;">chevron_left</i>
+    </a>
+    <a id="panelManagerNextPage" class="btn panelManagerButton d-flex align-items-center justify-content-center flex-grow-1" onclick="panelManager.nextPage(); return false;" data-mdb-tooltip-init title="Next Page">
+      <i class="material-symbols-outlined" style="font-size:38px;">chevron_right</i>
+    </a>
+  </div>
+  
+</div>
+
+  <div id="teamUnitsContainer"
+       class="d-flex flex-column flex-grow-1 overflow-y-auto" style="transition: 0.5s;">
+    
+<div class="contentHeaderContainer" style="visibility:hidden;">
+  <div id="setHeader" class="contentHeader" style="visibility: hidden">
+    <div id="setHeaderIconContainer">
+      <img id="setHeaderIcon" src="">
+    </div>
+    <div id="setHeaderInfo">
+      <div><h3 id="setHeaderName"></h3></div>
+      <div id="setHeaderReleaseDate" class="setHeaderItem"></div>
+      <div id="setHeaderHaveInfo" class="setHeaderItem"></div>
+      <div id="setHeaderWantInfo" class="setHeaderItem"></div>
+      <div class="d-flex">
+        <button type="button"
+                id="setHeaderStatsButton" 
+                class="btn btn-primary btn-sm d-flex flex-row align-items-center flex-grow-0 me-2"
+                data-mdb-modal-init
+                data-mdb-target="#setStatsModal">
+          <i class="material-icons"
+             data-mdb-tooltip-init
+             title="View Set Stats">bar_chart</i>
+        </button>
+        <button type="button"
+                id="setHeaderCompleteSetButton"
+                class="btn btn-primary btn-sm modal-trigger d-flex flex-row align-items-center flex-grow-0"
+                onclick="setManager.markSetComplete(); return false;"
+                data-mdb-tooltip-init
+                title="Mark Set as Complete">
+          <i class="material-icons">fact_check</i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="d-flex mt-2 mb-0 mx-1">
+      <div id="unitContainer"
+           style="display:none;">
+        <div id="unitControlsContainer">
+          
+          <div id="addUnitButtonContainer" class="me-1"></div>
+          <div id="unitButtonContainer">
+            <div class="btn-group me-1" role="group">
+              <div id="searchCorrelatedUnitsButtonContainer"
+                   class="btn-group"
+                   role="group">
+                <button id="searchCorrelatedUnitsButton"
+                  class="btn btn-primary btn-sm dropdown-toggle hidden-arrow px-2"
+                  type="button"
+                  data-mdb-dropdown-init>
+                  <i class="material-symbols-outlined"
+                     data-mdb-tooltip-init
+                     title="Suggest Teammates">
+                    escalator_warning
+                  </i>
+                </button>
+                <ul id="searchCorrelatedUnitsDropdownMenu" class="dropdown-menu"></ul>
+              </div>
+              <button id="favoriteButton"
+                class="btn btn-primary btn-sm px-2"
+                type="button"
+                data-mdb-tooltip-init
+                title="Toggle Favorite"
+                onclick="collectionManager.toggleFavorite(); return false;">
+                <i class="material-icons collectionButtonInactive">thumb_up</i>
+              </button>
+              <button id="unitFeedbackButton"
+                class="btn btn-primary btn-sm px-2"
+                type="button"
+                data-mdb-tooltip-init
+                title="Report Unit Feedback"
+                onclick="collectionManager.reportUnitFeedback(); return false;">
+                <i class="material-icons collectionButtonInactive">flag</i>
+              </button>
+            </div>
+          </div>
+          
+          <div id="collectionInputsContainer" class="input-group input-group-sm" style="display:none;">
+            <div class="form-floating collectionInput">
+              <input id="collectionHaveCount" type="number" class="form-control" min="0" max="99" value="">
+              <label for="collectionHaveCount">Have</label>
+            </div>
+            <div id="collectionShiftButtons" class="form-floating d-flex flex-column justify-content-center">
+              <button id="collectionShiftLeftButton"
+                 class="collectionShiftButton btn btn-sm btn-outline-secondary d-flex flex-row align-items-center"
+                 type="button"
+                 onclick="collectionManager.shiftWantToHave(); return false;">
+                <i class="material-symbols-outlined blue">arrow_left_alt</i>
+              </button>
+              <button id="collectionShiftRightButton"
+                 class="collectionShiftButton btn btn-sm btn-outline-secondary d-flex flex-row align-items-center"
+                 type="button"
+                 onclick="collectionManager.shiftHaveToWant(); return false;">
+                <i class="material-symbols-outlined">arrow_right_alt</i>
+              </button>
+            </div>
+            <div class="form-floating collectionInput">
+              <input id="collectionWantCount" type="number" class="form-control" min="0" max="99" value="">
+              <label for="collectionWantCount">Want</label>
+            </div>
+            <div class="form-floating collectionInput">
+              <input id="collectionTradeCount" type="number" class="form-control" min="0" max="99" value="">
+              <label for="collectionTradeCount">Trade</label>
+            </div>
+          </div>
+          <div id="unitSizeButtonContainer">
+            <a id="hideUnitButton"
+               class="btn btn-sm btn-outline-danger p-1"
+                data-mdb-tooltip-init
+                title="Hide Unit"
+               onclick="unitManager.hideUnit(); return false;">
+              <i class="material-icons">cancel</i>
+            </a>
+            <a id="toggleUnitMaximizedButton"
+               class="btn btn-sm btn-outline-primary p-1 mt-1"
+               data-mdb-tooltip-init
+               title=""
+               onclick="unitManager.toggleUnitMaximized(); return false;">
+              <i class="material-symbols-outlined">open_in_new_down</i>
+            </a>
+          </div>
+        </div>
+        <div id="unitCardsContainer">
+          <div id="unitCards"
+               
+               data-mdb-touch-init
+               data-mdb-event="swipe"
+               data-mdb-threshold="100"></div>
+          <div id="unitScrollUp" style="display:none;">
+            <i class="material-symbols-outlined">keyboard_double_arrow_up</i>
+          </div>
+          <div id="unitScrollDown" style="display:none;">
+            <i class="material-symbols-outlined">keyboard_double_arrow_down</i>
+          </div>
+        </div>
+        <div id="unitStatsContainer"></div>
+      </div>
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+    </div>
+  </main>
+  
+  
+  
+  
+
+<div id="unitModal" class="modal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class ="modal-content bg-transparent justify-content-center align-items-center"
+         style="height:0;">
+      <div class="modal-body">
+        <div id="unitModalContainer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div id="notificationModal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div id="notificationModalContent" class="modal-content"></div>
+    </div>
+  </div>
+  
+
+<div id="setStatsModal" class="modal">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div id="setStats"></div>
+          <div class="d-flex justify-content-center p-2">
+            <button id="setStatsLeftButton" class="btn btn-sm btn-primary me-2 d-flex vertical-align-center" onclick="setManager.rotateStatsLeft(); return false;" data-mdb-tooltip-init title="Previous Chart">
+              <i class="material-icons" style="color:white;">keyboard_arrow_left</i>
+            </button>
+            <button id="setStatsRightButton" class="btn btn-sm btn-primary d-flex vertical-align-center" onclick="setManager.rotateStatsRight(); return false;" data-mdb-tooltip-init title="Next Chart">
+              <i class="material-icons" style="color:white;">keyboard_arrow_right</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Javascript at end of body for optimized loading. -->
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://storage.googleapis.com/static.hcunits.net/3p/mdb-9.2.0/js/mdb.umd.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://hcmaps.net/js/edge.js"></script>
+  <script src="https://hcmaps.net/js/tile.js"></script>
+  <script src="https://hcmaps.net/js/wall.js"></script>
+  <script src="https://hcmaps.net/js/map.js"></script>
+
+  
+  
+  
+  
+  <script> const STATIC_URL = "https://storage.googleapis.com/static.hcunits.net/";</script>
+  
+  <script>
+    const username = null;
+  </script>
+
+  
+  <script>
+    const unitId = "ve010";
+    const setId = "ve";
+  </script>
+  
+
+
+  <script src="https://storage.googleapis.com/static.hcunits.net/CACHE/js/output.a9fd25d38a29.js"></script>
+
+  <script src="https://storage.googleapis.com/static.hcunits.net/CACHE/js/output.2ba76d35172f.js"></script>
+
+  <script src="https://storage.googleapis.com/static.hcunits.net/CACHE/js/output.e5090837e83e.js"></script>
+
+  <script src="https://storage.googleapis.com/static.hcunits.net/CACHE/js/output.7a8b09ae843a.js"></script>
+
+  <script>
+    
+  
+
+  const dataSource = new DataSource();
+  const hotkeyManager = new HotkeyManager();
+  
+  const formatManager = new FormatManager();
+
+  
+  const unitManagerOptions = {};
+  
+  
+const unitManager = new UnitManager(dataSource, hotkeyManager, unitManagerOptions);
+
+  
+  const collectionManager = new CollectionManager(unitManager, hotkeyManager, username, "gl64GBXzx6LWAQZ4eCyHq3AS4SM1USmUtehtCFJKXtyof93HtxSuk4jBrTFDkExz");
+  
+  
+const setManager = new SetManager(dataSource, unitManager, collectionManager);
+
+  
+  const teamManager = null;
+  
+  
+  
+
+  const panelManagerOptions = {};
+  
+panelManagerOptions.handleSearchParams = true;
+
+  const panelManager = new PanelManager(dataSource,
+                                        formatManager,
+                                        unitManager,
+                                        setManager,
+                                        teamManager,
+                                        collectionManager,
+                                        hotkeyManager,
+                                        panelManagerOptions,
+                                        "gl64GBXzx6LWAQZ4eCyHq3AS4SM1USmUtehtCFJKXtyof93HtxSuk4jBrTFDkExz");
+
+  
+  const quickSearchManager = new QuickSearchManager({
+    hotkeyManager: hotkeyManager,
+    onSubmit: function(query) {
+      panelManager.showQuickSearchResults(query);
+    },
+  });
+
+
+
+function adjustContentHeaderPosition() {
+  const parent = window.innerWidth < 965 || window.innerHeight > 1200
+      ? "#mainContentHeaderContainer"
+      : "#teamUnitsContainer";
+  $(".contentHeaderContainer").prependTo(parent).css("visibility", "");
+}
+window.addEventListener("load", adjustContentHeaderPosition);
+window.addEventListener("resize", adjustContentHeaderPosition);
+
+
+  
+
+  $(document).ready(function() {
+    if (setId) {
+      panelManager.showSetList(setId, unitId, "always");
+    } else if (unitId) {
+      unitManager.showUnit(unitId);
+    }
+  });
+
+
+    initThemeHandler();    
+    initSideNavHandler();
+    fixAriaHiddenWarning();
+  </script>
+</body>
+</html>
