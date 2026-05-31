@@ -147,7 +147,7 @@ func _add_player_state(id: int) -> void:
 	print(id)
 	if id != 1:
 		player.username = player_name_join_input.text
-		register_player.rpc_id(1, player.username)
+		GState.register_player.rpc_id(1, player.username)
 		GState.players[id] = player
 	else:
 		player.username = player_name_input.text
@@ -158,32 +158,3 @@ func _add_player_state(id: int) -> void:
 func _switch_to_team_importer() -> void:
 	session_creator.visible = false
 	team_importer.visible = true
-
-#Host player sync
-@rpc("any_peer", "reliable")
-func register_player(username: String):
-	var sender_id = multiplayer.get_remote_sender_id()
-	print("Player registered: ", username)
-	var player: Player = Player.new()
-	player.username = username
-	GState.players[sender_id] = player
-	print("USER ADDED TO GLOBAL STATE!")
-	GState.refresh_state.emit()
-
-	#Will need to update to transfer more potentially
-	var player_data := {}
-	for peer_id in GState.players:
-		player_data[peer_id] = {
-			"username": GState.players[peer_id].username
-		}
-	sync_players.rpc(player_data)
-
-#client player sync
-@rpc("authority", "reliable")
-func sync_players(player_data: Dictionary):
-	GState.players.clear()
-	for peer_id in player_data:
-		var player := Player.new()
-		player.username = player_data[peer_id]["username"]
-		GState.players[peer_id] = player
-	GState.refresh_state.emit()

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://xqic3n8ts00e"]
 
-[ext_resource type="Script" uid="uid://dh2sv5d17e6be" path="res://utility/game_scene.gd" id="1_mrhj5"]
+[ext_resource type="Script" uid="uid://dh2sv5d17e6be" path="res://ui/game_scene.gd" id="1_mrhj5"]
 [ext_resource type="PackedScene" uid="uid://bo6x3mu3bly1p" path="res://ui/team_importer.tscn" id="1_uamrr"]
 [ext_resource type="PackedScene" uid="uid://b32wph07ls0wx" path="res://ui/session_creator.tscn" id="3_mrhj5"]
 [ext_resource type="Script" uid="uid://blywr3oypvjjh" path="res://ui/session_players.gd" id="4_dinlh"]
