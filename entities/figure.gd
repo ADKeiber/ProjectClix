@@ -76,6 +76,8 @@ var dimension: String = "1x1"
 
 func _init(unit_id: String, data: Dictionary):
 	id = unit_id
+	info = data
+	generated_object_id()
 	figure_name = data.get("fn", "")
 	team_abilities = _string_array(
 		data.get("ta", [])

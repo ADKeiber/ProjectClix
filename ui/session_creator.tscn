@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b32wph07ls0wx"]
 
 [ext_resource type="Script" uid="uid://b60xscw1abjij" path="res://ui/session_creator.gd" id="1_sff7n"]
-[ext_resource type="Theme" uid="uid://ky15a3heacmo" path="res://ui/box_theme.tres" id="2_hepcj"]
+[ext_resource type="Theme" uid="uid://ky15a3heacmo" path="res://resources/box_theme.tres" id="2_hepcj"]
 
 [node name="SessionCreator" type="Control" unique_id=478397817]
 custom_minimum_size = Vector2(640, 360)

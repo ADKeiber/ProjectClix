@@ -5,7 +5,7 @@ extends Control
 @onready var join_v_box_container: VBoxContainer = $JoinVBoxContainer
 @onready var host_button: Button = $HostButton
 @onready var join_button: Button = $JoinButton
-const BOX_THEME = preload("res://ui/box_theme.tres")
+const BOX_THEME = preload("res://resources/box_theme.tres")
 @onready var session_creator: SessionCreator = %SessionCreator
 @onready var team_importer: TeamImporter = %TeamImporter
 

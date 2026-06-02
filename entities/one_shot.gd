@@ -32,6 +32,8 @@ var points: int = 0
 func _init(unit_id: String, data: Dictionary):
 
 	id = unit_id
+	info = data
+	generated_object_id()
 
 	type = data.get(
 		"tp",

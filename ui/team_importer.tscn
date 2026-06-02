@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bo6x3mu3bly1p"]
 
 [ext_resource type="Script" uid="uid://dv0dljwo5ikrm" path="res://ui/team_importer.gd" id="1_v1cak"]
-[ext_resource type="Theme" uid="uid://ky15a3heacmo" path="res://ui/box_theme.tres" id="2_bjhb4"]
+[ext_resource type="Theme" uid="uid://ky15a3heacmo" path="res://resources/box_theme.tres" id="2_bjhb4"]
 [ext_resource type="PackedScene" uid="uid://bttq6r5kvi3na" path="res://ui/game_object_import.tscn" id="3_payl2"]
 
 [node name="TeamImporter" type="Control" unique_id=478397817]
@@ -28,6 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayerName" type="HBoxContainer" parent="VBoxContainer" unique_id=1420587505]
+visible = false
 layout_mode = 2
 alignment = 1
 

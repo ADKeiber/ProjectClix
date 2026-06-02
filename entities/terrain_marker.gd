@@ -34,7 +34,10 @@ var cost: int = 0
 func _init(unit_id: String, data: Dictionary):
 
 	id = unit_id
-
+	info = data
+	generated_object_id()
+	
+	#This is old that we aren't currently using
 	type = data.get(
 		"tp",
         "TERRAIN_MARKER"

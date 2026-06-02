@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://xqic3n8ts00e"]
+
+[ext_resource type="Script" uid="uid://dh2sv5d17e6be" path="res://ui/game_scene.gd" id="1_mrhj5"]
+[ext_resource type="PackedScene" uid="uid://bo6x3mu3bly1p" path="res://ui/team_importer.tscn" id="1_uamrr"]
+[ext_resource type="PackedScene" uid="uid://b32wph07ls0wx" path="res://ui/session_creator.tscn" id="3_mrhj5"]
+[ext_resource type="Script" uid="uid://blywr3oypvjjh" path="res://ui/session_players.gd" id="4_dinlh"]
+[ext_resource type="Theme" uid="uid://dvk2p6fjbk2t4" path="res://resources/box_theme_50.tres" id="4_q7wcm"]
+
+[node name="GameScene" type="Node2D" unique_id=1740386926]
+script = ExtResource("1_mrhj5")
+
+[node name="TeamImporter" parent="." unique_id=478397817 instance=ExtResource("1_uamrr")]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SessionCreator" parent="." unique_id=1900573199 instance=ExtResource("3_mrhj5")]
+unique_name_in_owner = true
+offset_left = 494.0
+offset_top = 269.0
+offset_right = 1396.0
+offset_bottom = 791.0
+size_flags_horizontal = 4
+
+[node name="SessionPlayers" type="Control" parent="." unique_id=339227652]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 210.0
+offset_bottom = 61.0
+script = ExtResource("4_dinlh")
+
+[node name="MarginContainer" type="MarginContainer" parent="SessionPlayers" unique_id=307284219]
+layout_mode = 0
+offset_right = 207.0
+offset_bottom = 60.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Players" type="VBoxContainer" parent="SessionPlayers/MarginContainer" unique_id=32486064]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SessionPlayers/MarginContainer/Players" unique_id=203071621]
+layout_mode = 2
+text = "Connected Players:"
+
+[node name="Panel" type="Panel" parent="SessionPlayers" unique_id=1430302690]
+layout_mode = 0
+offset_right = 209.0
+offset_bottom = 62.0
+theme = ExtResource("4_q7wcm")
