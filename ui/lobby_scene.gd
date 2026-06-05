@@ -11,10 +11,3 @@ func _ready() -> void:
 	GState.load_units()
 	team_importer.visible = false
 	session_creator.visible = true
-
-
-##########################################
-## Team Importer methods
-##########################################
-
-#function used to make the request

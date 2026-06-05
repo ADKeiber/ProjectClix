@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cthxf1jxcg2n2" path="res://ui/game_object_import.gd" id="1_b606i"]
 
 [node name="GameObjectImport" type="HBoxContainer" unique_id=1581115106]
+size_flags_horizontal = 3
 alignment = 1
 script = ExtResource("1_b606i")
 
@@ -52,5 +53,9 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="." unique_id=1545172330]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="item_selected" from="MarginContainer2/OptionButton" to="." method="_on_option_button_item_selected"]

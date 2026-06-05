@@ -1,69 +1,47 @@
 class_name OneShot
 extends GameObject
 
+#########################################################
+## INIT
+#########################################################
 
-# =========================================================
-# DATA
-# =========================================================
-
-# unit id from json key
-var id: String = ""
-
-# tp
-var type: String = "ONE_SHOT"
-
-# n
-var objectName: String = ""
-
-# d
-var description: String = ""
-
-# au
-var art_url: String = ""
-
-# p
-var points: int = 0
-
-
-# =========================================================
-# INIT
-# =========================================================
-
-func _init(unit_id: String, data: Dictionary):
-
-	id = unit_id
+func _init(one_shot_id: String, data: Dictionary):
+	set_id = one_shot_id
 	info = data
 	generated_object_id()
 
-	type = data.get(
-		"tp",
-        "ONE_SHOT"
-	)
+#########################################################
+## IDS
+#########################################################
 
-	objectName = data.get(
-		"n",
-        ""
-	)
+func get_set_id() -> String:
+	return set_id
 
-	description = data.get(
-		"d",
-        ""
-	)
+func get_unique_id() -> int:
+	return object_id
 
-	art_url = data.get(
-		"au",
-        ""
-	)
+#########################################################
+## BASIC DATA
+#########################################################
 
-	points = int(
-		data.get("p", 0)
-	)
+func get_type() -> String:
+	return str(info.get("tp", "ONE_SHOT"))
 
+func get_name() -> String:
+	return str(info.get("n", ""))
 
-# =========================================================
-# HELPERS
-# =========================================================
+func get_description() -> String:
+	return str(info.get("d", ""))
+
+func get_art_url() -> String:
+	return str(info.get("au", ""))
+
+func get_points() -> int:
+	return int(info.get("p", 0))
+
+#########################################################
+## HELPERS
+#########################################################
 
 func is_free() -> bool:
-
-	return points <= 0
+	return get_points() <= 0

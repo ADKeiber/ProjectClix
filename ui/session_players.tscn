@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://birrxg81ju65t"]
+
+[ext_resource type="Script" uid="uid://blywr3oypvjjh" path="res://ui/session_players.gd" id="1_6r68k"]
+[ext_resource type="Theme" uid="uid://dvk2p6fjbk2t4" path="res://resources/box_theme_50.tres" id="2_10xew"]
+
+[node name="SessionPlayers" type="PanelContainer" unique_id=1617941563]
+offset_right = 210.0
+offset_bottom = 61.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_10xew")
+script = ExtResource("1_6r68k")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=156020512]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Players" type="VBoxContainer" parent="MarginContainer" unique_id=1447355405]
+layout_mode = 2
+
+[node name="ConnectedPlayerHeader" type="Label" parent="MarginContainer/Players" unique_id=722199323]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Connected Players:"
+
+[node name="PlayersList" type="VBoxContainer" parent="MarginContainer/Players" unique_id=1298444150]
+unique_name_in_owner = true
+layout_mode = 2

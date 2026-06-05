@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://dh2sv5d17e6be" path="res://ui/lobby_scene.gd" id="1_7vvq2"]
 [ext_resource type="PackedScene" uid="uid://bo6x3mu3bly1p" path="res://ui/team_importer.tscn" id="2_0acat"]
 [ext_resource type="PackedScene" uid="uid://b32wph07ls0wx" path="res://ui/session_creator.tscn" id="3_1i26l"]
-[ext_resource type="Script" uid="uid://blywr3oypvjjh" path="res://ui/session_players.gd" id="4_ul7tf"]
-[ext_resource type="Theme" uid="uid://dvk2p6fjbk2t4" path="res://resources/box_theme_50.tres" id="5_4pqb5"]
+[ext_resource type="PackedScene" uid="uid://birrxg81ju65t" path="res://ui/session_players.tscn" id="4_l1u28"]
 
 [node name="LobbyScene" type="Node2D" unique_id=1740386926]
 script = ExtResource("1_7vvq2")
@@ -31,32 +30,4 @@ offset_right = 1396.0
 offset_bottom = 791.0
 size_flags_horizontal = 4
 
-[node name="SessionPlayers" type="Control" parent="." unique_id=339227652]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 210.0
-offset_bottom = 61.0
-script = ExtResource("4_ul7tf")
-
-[node name="MarginContainer" type="MarginContainer" parent="SessionPlayers" unique_id=307284219]
-layout_mode = 0
-offset_right = 207.0
-offset_bottom = 60.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Players" type="VBoxContainer" parent="SessionPlayers/MarginContainer" unique_id=32486064]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Header" type="Label" parent="SessionPlayers/MarginContainer/Players" unique_id=203071621]
-layout_mode = 2
-text = "Connected Players:"
-
-[node name="Panel" type="Panel" parent="SessionPlayers" unique_id=1430302690]
-layout_mode = 0
-offset_right = 209.0
-offset_bottom = 62.0
-theme = ExtResource("5_4pqb5")
+[node name="SessionPlayers" parent="." unique_id=305533107 instance=ExtResource("4_l1u28")]

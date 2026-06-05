@@ -16,6 +16,8 @@ const BOX_THEME = preload("res://resources/box_theme.tres")
 @onready var player_name_join_input: LineEdit = %PlayerNameJoinInput
 @onready var join_code_input: LineEdit = %JoinCodeInput
 
+@onready var number_of_players_dropdown: OptionButton = %NumberOfPlayersDropdown
+
 var selectedTab : int = 0
 var join_code: String = ""
 var join_ip: String = "127.0.0.1" #updates if it isn't hosted on same machine that is joining
@@ -86,6 +88,7 @@ func _on_create_session_button_pressed() -> void:
 	print("Hosting Session")
 	print("Join Code: ", JoinCode.generate_join_code(NetUtil.public_ip, port, current_session_id))
 	Network.player_joined.emit(1)
+	_add_player_state
 	
 
 func _on_join_session_button_pressed() -> void:
@@ -147,14 +150,18 @@ func _add_player_state(id: int) -> void:
 	print(id)
 	if id != 1:
 		player.username = player_name_join_input.text
-		GState.register_player.rpc_id(1, player.username)
+		GState.register_player.rpc_id(1, player.to_dict())
 		GState.players[id] = player
 	else:
 		player.username = player_name_input.text
 		GState.players[id] = player
 	GState.refresh_state.emit()
-	GState.session_joined.emit()
+	GState.session_joined.emit() #switches to team importer instead of game create
 
 func _switch_to_team_importer() -> void:
 	session_creator.visible = false
 	team_importer.visible = true
+
+
+func _on_number_of_players_dropdown_item_selected(index: int) -> void:
+	GState.max_number_of_players = int(number_of_players_dropdown.get_item_text(index))

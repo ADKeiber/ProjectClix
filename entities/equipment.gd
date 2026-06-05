@@ -1,128 +1,78 @@
 class_name Equipment
 extends GameObject
 
-# =========================================================
-# DATA
-# =========================================================
+#########################################################
+## INIT
+#########################################################
 
-# unit id from json key
-var id: String = ""
-
-# tp
-var type: String = "EQUIPMENT"
-
-# n
-var object_name: String = ""
-
-# spt
-var special_power_title: String = ""
-
-# qn
-var qualifying_name: Variant = null
-
-# qk
-var qualifying_keywords: Variant = null
-
-# eq
-var equip: Variant = null
-
-# ue
-var unequip: Variant = null
-
-# d
-var description: String = ""
-
-# i
-var image_url: String = ""
-
-# c
-var cost: int = 0
-
-
-# =========================================================
-# INIT
-# =========================================================
-
-func _init(unit_id: String, data: Dictionary):
-
-	id = unit_id
+func _init(figure_id: String, data: Dictionary):
+	set_id = figure_id
 	info = data
 	generated_object_id()
 
-	type = data.get(
-		"tp",
-        "EQUIPMENT"
-	)
+#########################################################
+## BASIC DATA
+#########################################################
 
-	object_name = data.get(
-		"n",
-        ""
-	)
+func get_set_id() -> String:
+	return set_id
 
-	special_power_title = data.get(
-		"spt",
-        ""
-	)
+func get_unique_id() -> int:
+	return object_id
 
-	qualifying_name = data.get(
-		"qn",
-        ""
-	)
+func get_type() -> String:
+	return str(info.get("tp", "EQUIPMENT"))
 
-	qualifying_keywords = data.get(
-		"qk",
-        ""
-	)
+func get_name() -> String:
+	return str(info.get("n", ""))
 
-	equip = data.get(
-		"eq",
-        ""
-	)
+func get_special_power_title() -> String:
+	return str(info.get("spt", ""))
 
-	unequip = data.get(
-		"ue",
-        ""
-	)
+func get_description() -> String:
+	return str(info.get("d", ""))
 
-	description = data.get(
-		"d",
-        ""
-	)
+func get_image_url() -> String:
+	return str(info.get("i", ""))
 
-	image_url = data.get(
-		"i",
-        ""
-	)
+func get_cost() -> int:
+	return int(info.get("c", 0))
 
-	cost = int(
-		data.get("c", 0)
-	)
+#########################################################
+## EQUIPMENT RESTRICTIONS
+#########################################################
 
+func get_qualifying_name():
+	return info.get("qn", "")
 
-# =========================================================
-# HELPERS
-# =========================================================
+func get_qualifying_keywords():
+	return info.get("qk", "")
+
+#########################################################
+## EQUIP / UNEQUIP
+#########################################################
+
+func get_equip():
+	return info.get("eq", "")
+
+func get_unequip():
+	return info.get("ue", "")
+
+#########################################################
+## HELPERS
+#########################################################
 
 func has_qualifying_name() -> bool:
-
-	return qualifying_name != ""
-
+	return get_qualifying_name() != ""
 
 func has_qualifying_keywords() -> bool:
-
-	return qualifying_keywords != ""
-
+	return get_qualifying_keywords() != ""
 
 func is_free() -> bool:
-
-	return cost <= 0
-
+	return get_cost() <= 0
 
 func can_equip() -> bool:
-
-	return equip != ""
-
+	return get_equip() != ""
 
 func can_unequip() -> bool:
-
-	return unequip != ""
+	return get_unequip() != ""

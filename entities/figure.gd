@@ -1,181 +1,141 @@
 class_name Figure
 extends GameObject
 
-# =========================================================
-# DATA
-# =========================================================
+#########################################################
+## INIT
+#########################################################
 
-var id: String = ""
-
-# fn
-var figure_name: String = ""
-
-# ta
-var team_abilities: Array[String] = []
-
-# kw
-var keywords: Array[String] = []
-
-# spt
-var special_power_types: Array[String] = []
-
-# spn
-var special_power_names: Array[String] = []
-
-# spd
-var special_power_descriptions: Array[String] = []
-
-# pv
-var point_values: Array[int] = []
-
-# ia
-# [
-#   {
-#       "name": String,
-#       "description": String
-#   }
-# ]
-var improved_abilities: Array[Dictionary] = []
-
-# r
-var range: int = 0
-
-# t
-var targets: int = 0
-
-# ss
-var stat_symbols: Array[String] = []
-
-# movement
-# mca / mcv
-var movement_clix_abilities: Array[String] = []
-var movement_clix_values: Array[int] = []
-
-# attack
-# aca / acv
-var attack_clix_abilities: Array[String] = []
-var attack_clix_values: Array[int] = []
-
-# defense
-# dca / dcv
-var defense_clix_abilities: Array[String] = []
-var defense_clix_values: Array[int] = []
-
-# damage
-# gca / gcv
-var damage_clix_abilities: Array[String] = []
-var damage_clix_values: Array[int] = []
-
-# dim
-var dimension: String = "1x1"
-
-
-# =========================================================
-# INIT
-# =========================================================
-
-func _init(unit_id: String, data: Dictionary):
-	id = unit_id
+func _init(figure_id: String, data: Dictionary):
+	set_id = figure_id
 	info = data
 	generated_object_id()
-	figure_name = data.get("fn", "")
-	team_abilities = _string_array(
-		data.get("ta", [])
-	)
-	keywords = _string_array(
-		data.get("kw", [])
-	)
-	special_power_types = _string_array(
-		data.get("spt", [])
-	)
-	special_power_names = _string_array(
-		data.get("spn", [])
-	)
-	special_power_descriptions = _string_array(
-		data.get("spd", [])
-	)
-	point_values = _int_array(
-		data.get("pv", [])
-	)
-	range = int(data.get("r", 0))
-	targets = int(data.get("t", 0))
-	stat_symbols = _string_array(
-		data.get("ss", [])
-	)
-	movement_clix_abilities = _string_array(
-		data.get("mca", [])
-	)
-	movement_clix_values = _int_array(
-		data.get("mcv", [])
-	)
-	attack_clix_abilities = _string_array(
-		data.get("aca", [])
-	)
-	attack_clix_values = _int_array(
-		data.get("acv", [])
-	)
-	defense_clix_abilities = _string_array(
-		data.get("dca", [])
-	)
-	defense_clix_values = _int_array(
-		data.get("dcv", [])
-	)
-	damage_clix_abilities = _string_array(
-		data.get("gca", [])
-	)
-	damage_clix_values = _int_array(
-		data.get("gcv", [])
-	)
-	dimension = data.get("dim", "1x1")
-	# improved abilities
-	improved_abilities = []
 
-	for ability in data.get("ia", []):
-		improved_abilities.append({
+#########################################################
+## IDS
+#########################################################
+
+func get_set_id() -> String:
+	return set_id
+
+func get_unique_id() -> int:
+	return object_id
+
+#########################################################
+## BASIC DATA
+#########################################################
+
+func get_name() -> String:
+	return str(info.get("fn", ""))
+
+func get_range() -> int:
+	return int(info.get("r", 0))
+
+func get_targets() -> int:
+	return int(info.get("t", 0))
+
+func get_dimension() -> String:
+	return str(info.get("dim", "1x1"))
+
+#########################################################
+## ARRAYS
+#########################################################
+
+func get_team_abilities() -> Array[String]:
+	return _string_array(info.get("ta", []))
+
+func get_keywords() -> Array[String]:
+	return _string_array(info.get("kw", []))
+
+func get_special_power_types() -> Array[String]:
+	return _string_array(info.get("spt", []))
+
+func get_special_power_names() -> Array[String]:
+	return _string_array(info.get("spn", []))
+
+func get_special_power_descriptions() -> Array[String]:
+	return _string_array(info.get("spd", []))
+
+func get_point_values() -> Array[int]:
+	return _int_array(info.get("pv", []))
+
+func get_stat_symbols() -> Array[String]:
+	return _string_array(info.get("ss", []))
+
+#########################################################
+## DIAL DATA
+#########################################################
+
+func get_movement_clix_abilities() -> Array[String]:
+	return _string_array(info.get("mca", []))
+
+func get_movement_clix_values() -> Array[int]:
+	return _int_array(info.get("mcv", []))
+
+func get_attack_clix_abilities() -> Array[String]:
+	return _string_array(info.get("aca", []))
+
+func get_attack_clix_values() -> Array[int]:
+	return _int_array(info.get("acv", []))
+
+func get_defense_clix_abilities() -> Array[String]:
+	return _string_array(info.get("dca", []))
+
+func get_defense_clix_values() -> Array[int]:
+	return _int_array(info.get("dcv", []))
+
+func get_damage_clix_abilities() -> Array[String]:
+	return _string_array(info.get("gca", []))
+
+func get_damage_clix_values() -> Array[int]:
+	return _int_array(info.get("gcv", []))
+
+#########################################################
+## IMPROVED ABILITIES
+#########################################################
+
+func get_improved_abilities() -> Array[Dictionary]:
+	var abilities: Array[Dictionary] = []
+	for ability in info.get("ia", []):
+		abilities.append({
 			"name": ability.get("ian", ""),
 			"description": ability.get("iad", "")
 		})
+	return abilities
 
+#########################################################
+## HELPERS
+#########################################################
 
-# =========================================================
-# HELPERS
-# =========================================================
+func get_click_count() -> int:
+	return get_movement_clix_values().size()
+
+func has_keyword(keyword: String) -> bool:
+	return keyword in get_keywords()
+
+func has_team_ability(ability: String) -> bool:
+	return ability in get_team_abilities()
+
+func get_starting_points() -> int:
+	var points = get_point_values()
+	if points.is_empty():
+		return 0
+	return points[0]
+
+#########################################################
+## ARRAY HELPERS
+#########################################################
 
 func _string_array(value) -> Array[String]:
 	var result: Array[String] = []
-
 	if value is Array:
-
 		for item in value:
 			result.append(str(item))
-
 	elif value != null:
-
 		result.append(str(value))
-
 	return result
-
 
 func _int_array(arr: Array) -> Array[int]:
 	var result: Array[int] = []
 	for value in arr:
 		result.append(int(value))
 	return result
-
-# =========================================================
-# OPTIONAL HELPERS
-# =========================================================
-
-func get_click_count() -> int:
-	return movement_clix_values.size()
-
-func has_keyword(keyword: String) -> bool:
-	return keyword in keywords
-
-func has_team_ability(ability: String) -> bool:
-	return ability in team_abilities
-
-func get_starting_points() -> int:
-	if point_values.is_empty():
-		return 0
-	return point_values[0]

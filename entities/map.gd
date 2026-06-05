@@ -1,67 +1,50 @@
 class_name Map
 extends GameObject
 
+#########################################################
+## INIT
+#########################################################
 
-# =========================================================
-# DATA
-# =========================================================
-
-# unit id from json key
-var id: String = ""
-
-# tp
-var type: String = "MAP"
-
-# mn
-var map_name: String = ""
-
-# mt
-var map_type: String = ""
-
-
-# =========================================================
-# INIT
-# =========================================================
-
-func _init(unit_id: String, data: Dictionary):
-
-	id = unit_id
+func _init(map_id: String, data: Dictionary):
+	set_id = map_id
 	info = data
 	generated_object_id()
 
-	type = data.get(
-		"tp",
-        "MAP"
-	)
+#########################################################
+## IDS
+#########################################################
 
-	map_name = data.get(
-		"mn",
-        ""
-	)
+func get_set_id() -> String:
+	return set_id
 
-	map_type = data.get(
-		"mt",
-        ""
-	)
+func get_unique_id() -> int:
+	return object_id
 
+#########################################################
+## BASIC DATA
+#########################################################
 
-# =========================================================
-# HELPERS
-# =========================================================
+func get_type() -> String:
+	return str(info.get("tp", "MAP"))
+
+func get_name() -> String:
+	return str(info.get("mn", ""))
+
+func get_map_type() -> String:
+	return str(info.get("mt", ""))
+
+#########################################################
+## HELPERS
+#########################################################
 
 func is_indoor() -> bool:
-
-	return map_type.contains("INDOOR")
-
+	return get_map_type().contains("INDOOR")
 
 func is_outdoor() -> bool:
-
-	return map_type.contains("OUTDOOR")
-
+	return get_map_type().contains("OUTDOOR")
 
 func is_indoor_outdoor() -> bool:
-
 	return (
-		map_type.contains("INDOOR")
-		and map_type.contains("OUTDOOR")
+		get_map_type().contains("INDOOR")
+		and get_map_type().contains("OUTDOOR")
 	)

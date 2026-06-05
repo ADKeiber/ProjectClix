@@ -100,6 +100,7 @@ layout_mode = 2
 text = "Number of Players:"
 
 [node name="NumberOfPlayersDropdown" type="OptionButton" parent="HostVBoxContainer/NumberOfPlayers" unique_id=266785935]
+unique_name_in_owner = true
 layout_mode = 2
 selected = 0
 item_count = 7
@@ -211,6 +212,7 @@ offset_bottom = 521.0
 text = "Join"
 
 [connection signal="pressed" from="HostVBoxContainer/JoinCode/MarginContainer3/CopyButton" to="." method="_on_copy_button_pressed"]
+[connection signal="item_selected" from="HostVBoxContainer/NumberOfPlayers/NumberOfPlayersDropdown" to="." method="_on_number_of_players_dropdown_item_selected"]
 [connection signal="pressed" from="HostVBoxContainer/HBoxContainer/MarginContainer/CreateSessionButton" to="." method="_on_create_session_button_pressed"]
 [connection signal="pressed" from="JoinVBoxContainer/HBoxContainer2/MarginContainer/JoinSessionButton" to="." method="_on_join_session_button_pressed"]
 [connection signal="pressed" from="HostButton" to="." method="_on_host_button_pressed"]

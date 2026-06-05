@@ -1,212 +1,116 @@
 class_name Bystander
 extends GameObject
 
+#########################################################
+## INIT
+#########################################################
 
-# =========================================================
-# DATA
-# =========================================================
-
-# unit id from json key
-var id: String = ""
-
-# tp
-var type: String = "BYSTANDER"
-
-# n
-var objectName: String = ""
-
-# r
-var range: int = 0
-
-# t
-var targets: int = 0
-
-# iu
-var image_url: String = ""
-
-# combat types
-# mt / at / dt / dmt
-var movement_type: String = ""
-var attack_type: String = ""
-var defense_type: String = ""
-var damage_type: String = ""
-
-# ta
-var team_ability: Variant = null
-
-# movement
-# mv / ma
-var movement_value: int = 0
-var movement_ability: String = "NONE"
-
-# attack
-# av / aa
-var attack_value: int = 0
-var attack_ability: String = "NONE"
-
-# defense
-# dv / da
-var defense_value: int = 0
-var defense_ability: String = "NONE"
-
-# damage
-# dmv / dma
-var damage_value: int = 0
-var damage_ability: String = "NONE"
-
-# special powers
-# spt / spn / spd
-var special_power_types: Array[String] = []
-var special_power_names: Array[String] = []
-var special_power_descriptions: Array[String] = []
-
-
-# =========================================================
-# INIT
-# =========================================================
-
-func _init(unit_id: String, data: Dictionary):
-
-	id = unit_id
+func _init(figure_id: String, data: Dictionary):
+	set_id = figure_id
 	info = data
 	generated_object_id()
 
-	type = data.get(
-		"tp",
-        "BYSTANDER"
-	)
+#########################################################
+## BASIC DATA
+#########################################################
 
-	objectName = data.get(
-		"n",
-        ""
-	)
+func get_set_id() -> String:
+	return set_id
 
-	range = int(
-		data.get("r", 0)
-	)
+func get_unique_id() -> int:
+	return object_id
 
-	targets = int(
-		data.get("t", 0)
-	)
+func get_type() -> String:
+	return str(info.get("tp", "BYSTANDER"))
 
-	image_url = data.get(
-		"iu",
-        ""
-	)
+func get_name() -> String:
+	return str(info.get("n", ""))
 
-	movement_type = data.get(
-		"mt",
-        ""
-	)
+func get_range() -> int:
+	return int(info.get("r", 0))
 
-	attack_type = data.get(
-		"at",
-        ""
-	)
+func get_targets() -> int:
+	return int(info.get("t", 0))
 
-	defense_type = data.get(
-		"dt",
-        ""
-	)
+func get_image_url() -> String:
+	return str(info.get("iu", ""))
 
-	damage_type = data.get(
-		"dmt",
-        ""
-	)
+func get_team_ability():
+	return info.get("ta", "")
 
-	team_ability = data.get(
-		"ta",
-        ""
-	)
+#########################################################
+## COMBAT TYPES
+#########################################################
 
-	movement_value = int(
-		data.get("mv", 0)
-	)
+func get_movement_type() -> String:
+	return str(info.get("mt", ""))
 
-	movement_ability = data.get(
-		"ma",
-        "NONE"
-	)
+func get_attack_type() -> String:
+	return str(info.get("at", ""))
 
-	attack_value = int(
-		data.get("av", 0)
-	)
+func get_defense_type() -> String:
+	return str(info.get("dt", ""))
 
-	attack_ability = data.get(
-		"aa",
-        "NONE"
-	)
+func get_damage_type() -> String:
+	return str(info.get("dmt", ""))
 
-	defense_value = int(
-		data.get("dv", 0)
-	)
-
-	defense_ability = data.get(
-		"da",
-        "NONE"
-	)
-
-	damage_value = int(
-		data.get("dmv", 0)
-	)
-
-	damage_ability = data.get(
-		"dma",
-        "NONE"
-	)
-
-	special_power_types = _string_array(
-		data.get("spt", [])
-	)
-
-	special_power_names = _string_array(
-		data.get("spn", [])
-	)
-
-	special_power_descriptions = _string_array(
-		data.get("spd", [])
-	)
-
-
-# =========================================================
-# HELPERS
-# =========================================================
-
-func _string_array(arr: Array) -> Array[String]:
-
-	var result: Array[String] = []
-
-	for value in arr:
-		result.append(str(value))
-
-	return result
-
-
-func has_team_ability() -> bool:
-
-	return team_ability != ""
-
-
-func has_special_powers() -> bool:
-
-	return special_power_names.size() > 0
-
+#########################################################
+## COMBAT VALUES
+#########################################################
 
 func get_speed() -> int:
-
-	return movement_value
-
+	return int(info.get("mv", 0))
 
 func get_attack() -> int:
-
-	return attack_value
-
+	return int(info.get("av", 0))
 
 func get_defense() -> int:
-
-	return defense_value
-
+	return int(info.get("dv", 0))
 
 func get_damage() -> int:
+	return int(info.get("dmv", 0))
 
-	return damage_value
+#########################################################
+## COMBAT ABILITIES
+#########################################################
+
+func get_movement_ability() -> String:
+	return str(info.get("ma", "NONE"))
+
+func get_attack_ability() -> String:
+	return str(info.get("aa", "NONE"))
+
+func get_defense_ability() -> String:
+	return str(info.get("da", "NONE"))
+
+func get_damage_ability() -> String:
+	return str(info.get("dma", "NONE"))
+
+#########################################################
+## SPECIAL POWERS
+#########################################################
+
+func get_special_power_types() -> Array[String]:
+	return _string_array(info.get("spt", []))
+
+func get_special_power_names() -> Array[String]:
+	return _string_array(info.get("spn", []))
+
+func get_special_power_descriptions() -> Array[String]:
+	return _string_array(info.get("spd", []))
+
+#########################################################
+## HELPERS
+#########################################################
+
+func has_team_ability() -> bool:
+	return get_team_ability() != ""
+
+func has_special_powers() -> bool:
+	return get_special_power_names().size() > 0
+
+func _string_array(arr: Array) -> Array[String]:
+	var result: Array[String] = []
+	for value in arr:
+		result.append(str(value))
+	return result

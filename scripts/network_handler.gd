@@ -20,7 +20,7 @@ func _ready() -> void:
 func create_host(port: int) -> bool:
 	peer = ENetMultiplayerPeer.new()
 	print("HOSTING ON PORT: ", port)
-	var err = peer.create_server(port)
+	var err = peer.create_server(port, GState.max_number_of_players - 1)
 	if err != OK:
 		print("Failed to create host")
 		return false
@@ -45,7 +45,13 @@ func _on_peer_connected(id: int) -> void:
 	print("===================================")
 
 func _on_peer_disconnected(id: int) -> void:
-	player_left.emit(id)
+	if multiplayer.is_server():
+		GState.players.erase(id)
+		var players_data: Dictionary[int, Dictionary]
+		for peer_id in GState.players:
+			players_data[peer_id] = GState.players[peer_id].to_dict()
+		GState.sync_players(players_data)
+		GState.sync_players.rpc(players_data)
 	print("===================================")
 	print("PLAYER LEFT THE GAME")
 	print("Peer ID: ", id)

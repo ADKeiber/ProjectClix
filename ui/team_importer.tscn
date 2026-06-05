@@ -27,29 +27,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerName" type="HBoxContainer" parent="VBoxContainer" unique_id=1420587505]
-visible = false
-layout_mode = 2
-alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PlayerName" unique_id=1208744778]
-layout_mode = 2
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 15
-
-[node name="PlayerNameLabel" type="Label" parent="VBoxContainer/PlayerName/MarginContainer" unique_id=1674443829]
-layout_mode = 2
-text = "Player Name:"
-
-[node name="PlayerNameInput" type="LineEdit" parent="VBoxContainer/PlayerName" unique_id=858828868]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-max_length = 24
-
 [node name="SectionBreak" type="Label" parent="VBoxContainer" unique_id=1251541357]
 layout_mode = 2
 text = "______________________________________________________________________________________"

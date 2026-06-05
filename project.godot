@@ -18,8 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GState="*uid://dma2xsi73xa25"
-Parser="*uid://blx54vg617w8v"
-GSignals="*uid://be28cl6w02jwr"
 Network="*uid://do1i8ojcbows1"
 LAN="*uid://dp2qgwy0tr5ok"
 NetUtil="*uid://yy6mhutxbxt7"
