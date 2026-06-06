@@ -2,96 +2,51 @@ class_name TerrainMarker
 extends GameObject
 
 # =========================================================
-# DATA
-# =========================================================
-
-# unit id from json key
-var id: String = ""
-
-# tp
-var type: String = "TERRAIN_MARKER"
-
-# n
-var objectName: String = ""
-
-# tt
-var terrain_type: String = ""
-
-# d
-var description: String = ""
-
-# iu
-var image_url: String = ""
-
-# c
-var cost: int = 0
-
-
-# =========================================================
 # INIT
 # =========================================================
 
 func _init(unit_id: String, data: Dictionary):
-
-	id = unit_id
+	set_id = unit_id
 	info = data
 	generated_object_id()
-	
-	#This is old that we aren't currently using
-	type = data.get(
-		"tp",
-        "TERRAIN_MARKER"
-	)
 
-	objectName = data.get(
-		"n",
-        ""
-	)
+# =========================================================
+# GETTERS
+# =========================================================
 
-	terrain_type = data.get(
-		"tt",
-        ""
-	)
+func get_type() -> String:
+	return info.get("tp", "TERRAIN_MARKER")
 
-	description = data.get(
-		"d",
-        ""
-	)
+func get_name() -> String:
+	return info.get("n", "")
 
-	image_url = data.get(
-		"iu",
-        ""
-	)
+func get_terrain_type() -> String:
+	return info.get("tt", "")
 
-	cost = int(
-		data.get("c", 0)
-	)
+func get_description() -> String:
+	return info.get("d", "")
 
+func get_image_url() -> String:
+	return info.get("iu", "")
+
+func get_point_value() -> int:
+	return int(info.get("c", 0))
 
 # =========================================================
 # HELPERS
 # =========================================================
 
 func is_blocking() -> bool:
-
-	return terrain_type == "BLOCKING"
-
+	return get_terrain_type() == "BLOCKING"
 
 func is_hindering() -> bool:
-
-	return terrain_type == "HINDERING"
-
+	return get_terrain_type() == "HINDERING"
 
 func is_water() -> bool:
-
-	return terrain_type == "WATER"
-
+	return get_terrain_type() == "WATER"
 
 func is_elevated() -> bool:
-
-	return terrain_type == "ELEVATED"
-
+	return get_terrain_type() == "ELEVATED"
 
 func is_free() -> bool:
-
-	return cost <= 0
+	return get_point_value() <= 0

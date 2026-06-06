@@ -11,3 +11,9 @@ func _ready() -> void:
 	GState.load_units()
 	team_importer.visible = false
 	session_creator.visible = true
+	GState.session_joined.connect(_switch_to_team_importer)
+
+func _switch_to_team_importer() -> void:
+	session_creator.visible = false
+	team_importer.visible = true
+	team_importer.hide_start_game_button()

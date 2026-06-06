@@ -23,3 +23,7 @@ func set_field_name(num: int) -> void:
 func _on_option_button_item_selected(index: int) -> void:
 	current_text = option_button.get_item_text(index)
 	print(current_text)
+
+
+func _on_button_pressed() -> void:
+	queue_free()

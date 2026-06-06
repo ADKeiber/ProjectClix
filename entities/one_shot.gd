@@ -11,16 +11,6 @@ func _init(one_shot_id: String, data: Dictionary):
 	generated_object_id()
 
 #########################################################
-## IDS
-#########################################################
-
-func get_set_id() -> String:
-	return set_id
-
-func get_unique_id() -> int:
-	return object_id
-
-#########################################################
 ## BASIC DATA
 #########################################################
 
@@ -36,7 +26,7 @@ func get_description() -> String:
 func get_art_url() -> String:
 	return str(info.get("au", ""))
 
-func get_points() -> int:
+func get_point_value() -> int:
 	return int(info.get("p", 0))
 
 #########################################################
@@ -44,4 +34,4 @@ func get_points() -> int:
 #########################################################
 
 func is_free() -> bool:
-	return get_points() <= 0
+	return get_point_value() <= 0

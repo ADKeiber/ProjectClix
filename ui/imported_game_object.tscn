@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://blcqvy7bek1mo"]
+
+[node name="GameObjectImport" type="HBoxContainer" unique_id=1581115106]
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=729251471]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="FigureUrlLabel" type="Label" parent="MarginContainer" unique_id=622782591]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1:"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1316266442]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer2" unique_id=2036533969]
+layout_mode = 2
+text = "Figure"
+
+[node name="SetId" type="Label" parent="." unique_id=773837355]
+layout_mode = 2
+text = "ve001"
+
+[node name="ObjectName" type="Label" parent="." unique_id=2141723991]
+layout_mode = 2
+text = "Venom"
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=283734691]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer3" unique_id=1802612367]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "X"
+
+[node name="Control" type="Control" parent="." unique_id=1545172330]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="MarginContainer3/Button" to="." method="_on_button_pressed"]

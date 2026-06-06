@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bajkkdxbifg2j"]
+
+[ext_resource type="Script" uid="uid://bsc0ydww5s61w" path="res://ui/imported_figure_table.gd" id="1_umhus"]
+
+[node name="ImportedFigureTable" type="VBoxContainer" unique_id=1205604467]
+layout_direction = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1320.0
+offset_bottom = -1030.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_umhus")

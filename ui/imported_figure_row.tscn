@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://mvbs263rxiiv"]
+
+[ext_resource type="Script" uid="uid://dy1xrwhc2yes" path="res://imported_figure_row.gd" id="1_gyxcc"]
+
+[node name="ImportedFigureRow" type="HBoxContainer" unique_id=2009375391]
+anchors_preset = -1
+anchor_right = 0.333
+anchor_bottom = 0.053000003
+offset_right = -39.359985
+offset_bottom = -0.24000168
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gyxcc")
+
+[node name="NumberLabel" type="Label" parent="." unique_id=1435123308]
+unique_name_in_owner = true
+layout_mode = 2
+text = "#"
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Label" parent="." unique_id=1598816652]
+layout_mode = 2
+text = "|"
+
+[node name="ObjectTypeLabel" type="Label" parent="." unique_id=546987100]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Label" parent="." unique_id=1227207038]
+layout_mode = 2
+text = "|"
+
+[node name="SetNumberLabel" type="Label" parent="." unique_id=781533614]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Set Number"
+horizontal_alignment = 1
+
+[node name="Spacer3" type="Label" parent="." unique_id=1626675601]
+layout_mode = 2
+text = "|"
+
+[node name="ObjectNameLabel" type="Label" parent="." unique_id=1960537528]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Spacer4" type="Label" parent="." unique_id=662519284]
+layout_mode = 2
+text = "|"
+
+[node name="CostLabel" type="Label" parent="." unique_id=939175675]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cost"
+horizontal_alignment = 1
+
+[node name="DeleteButton" type="Button" parent="." unique_id=733417587]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "X"
+
+[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]

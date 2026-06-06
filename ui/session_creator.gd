@@ -33,7 +33,7 @@ func _ready() -> void:
 	current_session_id = LAN.get_unused_session_id()
 	NetUtil.get_public_ip()
 	Network.player_joined.connect(_add_player_state)
-	GState.session_joined.connect(_switch_to_team_importer)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -158,10 +158,7 @@ func _add_player_state(id: int) -> void:
 	GState.refresh_state.emit()
 	GState.session_joined.emit() #switches to team importer instead of game create
 
-func _switch_to_team_importer() -> void:
-	session_creator.visible = false
-	team_importer.visible = true
-
+##Maybe should be in Lobby Scene?
 
 func _on_number_of_players_dropdown_item_selected(index: int) -> void:
 	GState.max_number_of_players = int(number_of_players_dropdown.get_item_text(index))

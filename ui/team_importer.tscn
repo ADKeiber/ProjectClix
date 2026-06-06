@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bo6x3mu3bly1p"]
 
 [ext_resource type="Script" uid="uid://dv0dljwo5ikrm" path="res://ui/team_importer.gd" id="1_v1cak"]
-[ext_resource type="Theme" uid="uid://ky15a3heacmo" path="res://resources/box_theme.tres" id="2_bjhb4"]
+[ext_resource type="Theme" uid="uid://dvk2p6fjbk2t4" path="res://resources/box_theme_50.tres" id="2_3jom7"]
 [ext_resource type="PackedScene" uid="uid://bttq6r5kvi3na" path="res://ui/game_object_import.tscn" id="3_payl2"]
+[ext_resource type="PackedScene" uid="uid://bajkkdxbifg2j" path="res://ui/imported_figure_table.tscn" id="4_3jom7"]
 
 [node name="TeamImporter" type="Control" unique_id=478397817]
 custom_minimum_size = Vector2(640, 360)
@@ -10,63 +11,100 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_v1cak")
 
-[node name="Panel" type="Panel" parent="." unique_id=1722201006]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_bjhb4")
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1906059258]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_3jom7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1379623881]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SectionBreak" type="Label" parent="VBoxContainer" unique_id=1251541357]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1861736346]
 layout_mode = 2
-text = "______________________________________________________________________________________"
-horizontal_alignment = 1
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="AddFigureFieldContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1260303708]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1379623881]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=455558634]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1215410296]
+layout_mode = 2
+theme_override_constants/margin_left = 225
+
+[node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer" unique_id=1444400762]
+layout_mode = 2
+
+[node name="ReadyUpButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=922115058]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ready Up!"
+
+[node name="AddFigureFieldContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1260303708]
+layout_mode = 2
+theme_override_constants/margin_left = 175
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 30
 
-[node name="AddFigure" type="Button" parent="VBoxContainer/AddFigureFieldContainer" unique_id=775238482]
+[node name="AddFigure" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/AddFigureFieldContainer" unique_id=775238482]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "Add +"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=839159163]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=839159163]
 custom_minimum_size = Vector2(0, 190)
 layout_mode = 2
 
-[node name="TeamImport" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1879136132]
+[node name="TeamImport" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1879136132]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 4
 
-[node name="GameObjectImport" parent="VBoxContainer/ScrollContainer/TeamImport" unique_id=1581115106 instance=ExtResource("3_payl2")]
+[node name="GameObjectImport" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/TeamImport" unique_id=1581115106 instance=ExtResource("3_payl2")]
 layout_mode = 2
 
-[node name="ImportTeamContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1918944594]
+[node name="ImportTeamContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1918944594]
 layout_mode = 2
 theme_override_constants/margin_top = 5
 
-[node name="ImportButton" type="Button" parent="VBoxContainer/ImportTeamContainer" unique_id=248425021]
+[node name="ImportButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ImportTeamContainer" unique_id=248425021]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Import Team"
+text = "Import Objects"
 
-[connection signal="pressed" from="VBoxContainer/AddFigureFieldContainer/AddFigure" to="." method="_on_add_figure_pressed"]
-[connection signal="pressed" from="VBoxContainer/ImportTeamContainer/ImportButton" to="." method="_on_import_button_pressed"]
+[node name="SectionBreak" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1251541357]
+layout_mode = 2
+text = "______________________________________________________________________________________"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=132759833]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="ImportedFigureTable" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1205604467 instance=ExtResource("4_3jom7")]
+layout_mode = 2
+
+[node name="StartGameButton" type="Button" parent="." unique_id=650833458]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 105.0
+offset_top = -111.0
+offset_right = 497.0
+offset_bottom = -15.0
+theme_override_font_sizes/font_size = 64
+text = "Start Game!!"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ReadyUpButton" to="." method="_on_ready_up_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/AddFigureFieldContainer/AddFigure" to="." method="_on_add_figure_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ImportTeamContainer/ImportButton" to="." method="_on_import_button_pressed"]
+[connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]

@@ -1,91 +1,46 @@
 class_name Terrain
 extends GameObject
 
-
-# =========================================================
-# DATA
-# =========================================================
-
-# unit id from json key
-var id: String = ""
-
-# tp
-var type: String = "TERRAIN"
-
-# n
-var objectName: String = ""
-
-# tt
-var terrain_type: String = ""
-
-# iu
-var image_url: String = ""
-
-# r
-var range: int = 0
-
-# gr
-var giants_reach: int = 0
-
-# td
-var thrown_damage: int = 0
-
-# ad
-var added_damage: String = ""
-
-# dd
-var damage_to_destroy: int = 0
-
-
 # =========================================================
 # INIT
 # =========================================================
 
 func _init(unit_id: String, data: Dictionary):
 
-	id = unit_id
+	set_id = unit_id
 	info = data
 	generated_object_id()
 
-	type = data.get(
-		"tp",
-        "TERRAIN"
-	)
+# =========================================================
+# GETTERS
+# =========================================================
 
-	objectName = data.get(
-		"n",
-        ""
-	)
+func get_type() -> String:
+	return info.get("tp","TERRAIN")
 
-	terrain_type = data.get(
-		"tt",
-        ""
-	)
+func get_name() -> String:
+	return info.get("n","")
 
-	image_url = data.get(
-		"iu",
-        ""
-	)
+func get_terrain_type() -> String:
+	return info.get("tt","")
 
-	range = int(
-		data.get("r", 0)
-	)
+func get_image_url() -> String:
+	return info.get("iu","")
 
-	giants_reach = int(
-		data.get("gr", 0)
-	)
+func get_range() -> int:
+	return int(info.get("r", 0))
 
-	thrown_damage = int(
-		data.get("td", 0)
-	)
+func get_giants_reach() -> int:
+	return int(info.get("gr", 0))
 
-	added_damage = str(
-		data.get("ad", "")
-	)
+func get_thrown_damage() -> int:
+	return int(info.get("td", 0))
 
-	damage_to_destroy = int(
-		data.get("dd", 0)
-	)
+func get_added_damage() -> String:
+	return str(info.get("ad", ""))
+
+func get_damage_to_destroy() -> int:
+	return int(info.get("dd", 0))
 
 
 # =========================================================
@@ -93,25 +48,16 @@ func _init(unit_id: String, data: Dictionary):
 # =========================================================
 
 func is_blocking() -> bool:
-
-	return terrain_type == "BLOCKING"
-
+	return get_terrain_type() == "BLOCKING"
 
 func is_hindering() -> bool:
-
-	return terrain_type == "HINDERING"
-
+	return get_terrain_type() == "HINDERING"
 
 func is_water() -> bool:
-
-	return terrain_type == "WATER"
-
+	return get_terrain_type() == "WATER"
 
 func is_elevated() -> bool:
-
-	return terrain_type == "ELEVATED"
-
+	return get_terrain_type() == "ELEVATED"
 
 func can_be_thrown() -> bool:
-
-	return thrown_damage > 0
+	return get_thrown_damage() > 0

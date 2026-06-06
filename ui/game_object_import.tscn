@@ -54,8 +54,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=283734691]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer3" unique_id=1802612367]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "X"
+
 [node name="Control" type="Control" parent="." unique_id=1545172330]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [connection signal="item_selected" from="MarginContainer2/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="MarginContainer3/Button" to="." method="_on_button_pressed"]

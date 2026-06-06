@@ -19,3 +19,13 @@ func _get_string(key: String, default: String = "") -> String:
 
 func _get_bool(key: String, default: bool = false) -> bool:
 	return bool(info.get(key, default))
+
+#########################################################
+## IDS
+#########################################################
+
+func get_set_id() -> String:
+	return set_id
+
+func get_unique_id() -> int:
+	return object_id

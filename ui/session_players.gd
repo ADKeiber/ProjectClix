@@ -10,6 +10,7 @@ const CONNECTED_PLAYER_UI = preload("res://ui/connected_player.tscn")
 func _ready() -> void:
 	GState.refresh_state.connect(update_players)
 	GState.ready_player.connect(ready_player)
+	update_players()
 
 func update_players() -> void:
 	for child in players_list.get_children():
@@ -24,7 +25,9 @@ func update_players() -> void:
 		else:
 			player_connection.set_player_name(player.username)
 		player_connection.set_ready(player.ready)
-	connected_player_header.text = "Connected Players: (%s/%s)" % [len(GState.players), GState.max_number_of_players]
+	if GState.players.size() != 0:
+		connected_player_header.text = "Connected Players: (%s/%s)" % [len(GState.players), GState.max_number_of_players]
+	GState.all_players_ready.emit(GState.players_ready())
 
 func ready_player(peer_id: int, ready: bool) -> void:
 	var player: Player = GState.players[peer_id]
@@ -32,3 +35,4 @@ func ready_player(peer_id: int, ready: bool) -> void:
 		var text:String = child.get_username().replace(" (HOST)","")
 		if text == player.username:
 			child.set_ready(ready)
+	GState.all_players_ready.emit(GState.players_ready())

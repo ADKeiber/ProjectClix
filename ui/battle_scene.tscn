@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://46v5l0am6iqn"]
+
+[ext_resource type="Script" uid="uid://15yo2so2knhj" path="res://ui/battle_scene.gd" id="1_d5srp"]
+[ext_resource type="PackedScene" uid="uid://birrxg81ju65t" path="res://ui/session_players.tscn" id="2_1tubo"]
+
+[node name="BattleScene" type="Node2D" unique_id=1092982873]
+script = ExtResource("1_d5srp")
+
+[node name="SessionPlayers" parent="." unique_id=1617941563 instance=ExtResource("2_1tubo")]
+
+[node name="Label" type="Label" parent="." unique_id=1339027573]
+offset_left = 557.0
+offset_top = 21.0
+offset_right = 1407.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 24
+text = "GAME JOINED AND READY!!!!!!!!!!!!!!!!!!!"
+autowrap_mode = 1

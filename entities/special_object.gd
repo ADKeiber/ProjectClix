@@ -2,60 +2,36 @@ class_name SpecialObject
 extends GameObject
 
 # =========================================================
-# DATA
-# =========================================================
-
-# unit id from json key
-var id: String = ""
-# tp
-var type: String = "SPECIAL_OBJECT"
-# n
-var objectName: String = ""
-# d
-var description: String = ""
-# c
-var cost: int = 0
-# iu
-var image_url: String = ""
-
-
-# =========================================================
 # INIT
 # =========================================================
 
 func _init(unit_id: String, data: Dictionary):
-	id = unit_id
+	set_id = unit_id
 	info = data
 	generated_object_id()
-	
-	type = data.get(
-		"tp",
-        "SPECIAL_OBJECT"
-	)
 
-	objectName = data.get(
-		"n",
-        ""
-	)
+# =========================================================
+# GETTERS
+# =========================================================
 
-	description = data.get(
-		"d",
-        ""
-	)
+func get_type() -> String:
+	return info.get("tp", "SPECIAL_OBJECT")
 
-	cost = int(
-		data.get("c", 0)
-	)
+func get_name() -> String:
+	return info.get("n", "")
 
-	image_url = data.get(
-		"iu",
-        ""
-	)
+func get_description() -> String:
+	return info.get("d", "")
 
+func get_point_value() -> int:
+	return int(info.get("c", 0))
+
+func get_image_url() -> String:
+	return info.get("iu", "")
 
 # =========================================================
 # HELPERS
 # =========================================================
 
 func is_free() -> bool:
-	return cost <= 0
+	return get_point_value() <= 0

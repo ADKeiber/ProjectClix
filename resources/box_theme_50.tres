@@ -1,11 +1,5 @@
 [gd_resource type="Theme" format=3 uid="uid://dvk2p6fjbk2t4"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fag24"]
-bg_color = Color(0.2784314, 0.2784314, 0.2784314, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyc3e"]
-bg_color = Color(0.2784314, 0.2784314, 0.2784314, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yve11"]
 bg_color = Color(0.2784314, 0.2784314, 0.2784314, 0.49803922)
 border_width_left = 2
@@ -27,7 +21,5 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [resource]
-Button/styles/normal = SubResource("StyleBoxFlat_fag24")
-Button/styles/pressed = SubResource("StyleBoxFlat_jyc3e")
 Panel/styles/panel = SubResource("StyleBoxFlat_yve11")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_5h3c1")

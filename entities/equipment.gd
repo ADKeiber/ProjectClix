@@ -14,12 +14,6 @@ func _init(figure_id: String, data: Dictionary):
 ## BASIC DATA
 #########################################################
 
-func get_set_id() -> String:
-	return set_id
-
-func get_unique_id() -> int:
-	return object_id
-
 func get_type() -> String:
 	return str(info.get("tp", "EQUIPMENT"))
 
@@ -35,7 +29,7 @@ func get_description() -> String:
 func get_image_url() -> String:
 	return str(info.get("i", ""))
 
-func get_cost() -> int:
+func get_point_value() -> int:
 	return int(info.get("c", 0))
 
 #########################################################
@@ -69,7 +63,7 @@ func has_qualifying_keywords() -> bool:
 	return get_qualifying_keywords() != ""
 
 func is_free() -> bool:
-	return get_cost() <= 0
+	return get_point_value() <= 0
 
 func can_equip() -> bool:
 	return get_equip() != ""

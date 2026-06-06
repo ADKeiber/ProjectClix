@@ -14,12 +14,6 @@ func _init(figure_id: String, data: Dictionary):
 ## BASIC DATA
 #########################################################
 
-func get_set_id() -> String:
-	return set_id
-
-func get_unique_id() -> int:
-	return object_id
-
 func get_type() -> String:
 	return str(info.get("tp", "BYSTANDER"))
 
