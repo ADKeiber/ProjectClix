@@ -134,11 +134,32 @@ func end_drag() -> void:
 	apply_torque_impulse(torque)
 
 func get_face_value() -> int:
-	var highest_face: int = 1
-	var highest_y: float = $Face1.global_position.y
+	var highest_face: Node3D
+	var faces: Array[Node3D]
+	for i in range(1, 7):
+		faces.append(get_node("Face%d" % i))
+	highest_face = get_highest_face(faces)
+	for i in range(5):
+		#print(faces.get(i).global_position)
+		if faces.get(i) == highest_face:
+			faces.remove_at(i)
+	var second_highest_face: Node3D = get_highest_face(faces)
+	print("Highest Face: ", highest_face.global_position.y)
+	print("Second Highest Face: ", second_highest_face.global_position.y)
+	if highest_face.global_position.y - second_highest_face.global_position.y < 0.02:
+		#do a nudge
+		print("INTS ON THE WALL!")
+		apply_impulse(Vector3(
+			randf_range(-0.01, 0.01),
+			0.01,
+			randf_range(-0.01, 0.01)
+		))
+	return int(str(highest_face.name).trim_prefix("Face"))
+
+func get_highest_face(faces: Array[Node3D]) -> Node3D:
+	var highest_face: Node3D = faces[0]
 	for i in range(2, 7):
 		var face: Node3D = get_node("Face%d" % i)
-		if face.global_position.y > highest_y:
-			highest_y = face.global_position.y
-			highest_face = i
+		if faces.has(face) && face.global_position.y > highest_face.global_position.y:
+			highest_face = face
 	return highest_face

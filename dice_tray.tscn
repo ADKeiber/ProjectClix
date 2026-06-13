@@ -17,6 +17,9 @@ size = Vector3(0.5, 0.15, 0.025)
 [sub_resource type="BoxMesh" id="BoxMesh_4fyo4"]
 size = Vector3(0.025, 0.15, 0.5)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6hifu"]
+bounce = 0.3
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4ovc"]
 size = Vector3(0.025, 0.15, 0.5)
 
@@ -28,8 +31,17 @@ roughness_texture_channel = 1
 material = SubResource("StandardMaterial3D_hg7jn")
 size = Vector3(0.5, 0.025, 0.5)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lfua4"]
+bounce = 0.3
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_4fyo4"]
 size = Vector3(0.5, 0.025, 0.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yu315"]
+bounce = 0.3
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4ngi"]
+bounce = 0.3
 
 [node name="DiceTray" type="Node3D" unique_id=899897312]
 script = ExtResource("1_4fyo4")
@@ -64,6 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.075, 0)
 mesh = SubResource("BoxMesh_4fyo4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="EastWall" unique_id=1359009227]
+physics_material_override = SubResource("PhysicsMaterial_6hifu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EastWall/StaticBody3D" unique_id=1997986679]
 shape = SubResource("BoxShape3D_g4ovc")
@@ -74,6 +87,7 @@ shape = SubResource("BoxShape3D_g4ovc")
 mesh = SubResource("BoxMesh_hg7jn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=1734602003]
+physics_material_override = SubResource("PhysicsMaterial_lfua4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=633037013]
 shape = SubResource("BoxShape3D_4fyo4")
@@ -85,6 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.075, 0)
 mesh = SubResource("BoxMesh_4fyo4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WestWall" unique_id=1060913680]
+physics_material_override = SubResource("PhysicsMaterial_yu315")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WestWall/StaticBody3D" unique_id=1843013551]
 shape = SubResource("BoxShape3D_g4ovc")
@@ -96,6 +111,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0.25)
 mesh = SubResource("BoxMesh_hjfrq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SouthWall" unique_id=1091041949]
+physics_material_override = SubResource("PhysicsMaterial_n4ngi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SouthWall/StaticBody3D" unique_id=1244886231]
 shape = SubResource("BoxShape3D_hg7jn")

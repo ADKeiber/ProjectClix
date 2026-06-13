@@ -29,7 +29,7 @@ func pickup_dice(die: Die, num_of_dice: int) -> void:
 	for child in get_children():
 		if not child == die and num_of_dice_picked_up < num_of_dice:
 			num_of_dice_picked_up += 1
-			#child.MAX_Z = child.MAX_Z - child.offset.z TODO REVIST so dice remain inside
+			#child.MAX_Z = child.MAX_Z - child.offset.z TODO REVIST so unselected dice remain inside 
 			#child.MAX_X = child.MAX_X - child.offset.x
 			dice_rolling.append(child)
 	for die_rolling in dice_rolling:
