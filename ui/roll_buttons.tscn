@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://boyedgvgnlfu8"]
+
+[ext_resource type="Script" uid="uid://co4h8dl3451b5" path="res://ui/roll_buttons.gd" id="1_oi8mi"]
+
+[node name="RollButtons" type="VBoxContainer" unique_id=356784736]
+anchors_preset = -1
+anchor_right = 0.053000003
+anchor_bottom = 0.05
+offset_right = 1.2399902
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("1_oi8mi")
+
+[node name="NumDiceToRoll" type="Label" parent="." unique_id=713428404]
+layout_mode = 2
+text = "# of Dice"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1432159334]
+layout_mode = 2
+alignment = 1
+
+[node name="1d6ManualButton" type="Button" parent="HBoxContainer2" unique_id=685308286]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "1d6"
+
+[node name="Control" type="Control" parent="HBoxContainer2" unique_id=522078088]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="2d6ManualButton" type="Button" parent="HBoxContainer2" unique_id=329840741]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "2d6"
+
+[node name="Label" type="Label" parent="." unique_id=2097638350]
+layout_mode = 2
+text = "Auto-Roll"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=189415161]
+layout_mode = 2
+alignment = 1
+
+[node name="1d6Button" type="Button" parent="HBoxContainer" unique_id=458677751]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "1d6"
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1349900252]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="2d6Button" type="Button" parent="HBoxContainer" unique_id=507791202]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "2d6"
+
+[connection signal="pressed" from="HBoxContainer2/1d6ManualButton" to="." method="_on_d_6_manual_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/2d6ManualButton" to="." method="_on_2_d_6_manual_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/1d6Button" to="." method="_on_d_6_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/2d6Button" to="." method="_on_2_d_6_button_pressed"]

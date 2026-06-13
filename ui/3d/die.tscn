@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ny48nwwhkw54"]
+
+[ext_resource type="PackedScene" uid="uid://mfqcyfc63isj" path="res://assets/dice_d6_low-poly_pbr.glb" id="1_0w7n3"]
+[ext_resource type="Script" uid="uid://d0stpi13r7egk" path="res://ui/3d/die.gd" id="1_2pa3b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2pa3b"]
+size = Vector3(0.03, 0.03, 0.03)
+
+[node name="Die" type="RigidBody3D" unique_id=1223601081]
+continuous_cd = true
+script = ExtResource("1_2pa3b")
+
+[node name="Die" parent="." unique_id=1467883803 instance=ExtResource("1_0w7n3")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 4.6163797e-05, 0, 0.00018663704)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1206271169]
+shape = SubResource("BoxShape3D_2pa3b")
+
+[node name="Face1" type="Marker3D" parent="." unique_id=1370787054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00035334006, 0.0235883)
+
+[node name="Face2" type="Marker3D" parent="." unique_id=1118190333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02138314, 0)
+
+[node name="Face3" type="Marker3D" parent="." unique_id=2067098939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02346924, 0, 0)
+
+[node name="Face4" type="Marker3D" parent="." unique_id=1504558603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023279533, 0, 0)
+
+[node name="Face5" type="Marker3D" parent="." unique_id=735065894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024703115, 0)
+
+[node name="Face6" type="Marker3D" parent="." unique_id=686687280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.023098957)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

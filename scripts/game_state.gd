@@ -7,6 +7,8 @@ signal session_joined()
 signal import_team(peer_id: int, figure_urls: Array[String], figure_types: Array[GameObject.Type])
 signal ready_player(peer_id: int, ready:bool)
 signal all_players_ready(ready:bool)
+signal change_dice_to_roll(die_num: int)
+
 var players: Dictionary[int,Player]  = {} # Data is peer ID, Player information
 var units_data: Dictionary
 var max_number_of_players: int = 2

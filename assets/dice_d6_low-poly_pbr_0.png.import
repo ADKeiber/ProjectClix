@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jrdacjp0ihts"
-path.s3tc="res://.godot/imported/bp001.png-dd9e34ec97790417e4133bcd88f795b1.s3tc.ctex"
+uid="uid://djdmur1t1d71w"
+path.s3tc="res://.godot/imported/dice_d6_low-poly_pbr_0.png-192353575dd402f822985afccea1a2c2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "0dc3b0f697cbff7e1302802ca4d345a2"
+}
 
 [deps]
 
-source_file="res://python/images/bp001.png"
-dest_files=["res://.godot/imported/bp001.png-dd9e34ec97790417e4133bcd88f795b1.s3tc.ctex"]
+source_file="res://assets/dice_d6_low-poly_pbr_0.png"
+dest_files=["res://.godot/imported/dice_d6_low-poly_pbr_0.png-192353575dd402f822985afccea1a2c2.s3tc.ctex"]
 
 [params]
 

@@ -1,7 +1,6 @@
 class_name NetworkUtility
 extends Node
 
-
 var http_request : HTTPRequest
 var public_ip: String = ""
 
@@ -24,7 +23,6 @@ func _on_request_completed(result:int, response_code:int, headers:PackedStringAr
 		print("FAILED TO GET PUBLIC IP!!")
 		return
 	print("SUCCESSFULLY GOT PUBLIC IP!")
-	
 	public_ip = body.get_string_from_utf8().strip_edges()
 
 func get_cached_public_ip() -> String:

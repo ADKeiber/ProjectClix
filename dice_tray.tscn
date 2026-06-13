@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://bxho13uqquyn7"]
+
+[ext_resource type="Script" uid="uid://w26mmp73ihfd" path="res://dice_tray.gd" id="1_4fyo4"]
+[ext_resource type="PackedScene" uid="uid://ny48nwwhkw54" path="res://ui/3d/die.tscn" id="1_hg7jn"]
+[ext_resource type="Script" uid="uid://bm0kowy1ny7g8" path="res://dice.gd" id="3_104ui"]
+[ext_resource type="PackedScene" uid="uid://boyedgvgnlfu8" path="res://ui/roll_buttons.tscn" id="3_g4ovc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hjfrq"]
+size = Vector3(0.5, 0.15, 0.025)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_104ui"]
+bounce = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hg7jn"]
+size = Vector3(0.5, 0.15, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4fyo4"]
+size = Vector3(0.025, 0.15, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4ovc"]
+size = Vector3(0.025, 0.15, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hg7jn"]
+albedo_color = Color(0.11764706, 0.3019608, 0.16862746, 1)
+roughness_texture_channel = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_hg7jn"]
+material = SubResource("StandardMaterial3D_hg7jn")
+size = Vector3(0.5, 0.025, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4fyo4"]
+size = Vector3(0.5, 0.025, 0.5)
+
+[node name="DiceTray" type="Node3D" unique_id=899897312]
+script = ExtResource("1_4fyo4")
+MIN_X = -0.219
+MIN_Z = -0.21
+MAX_X = 0.219
+MAX_Z = 0.219
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=744516205]
+transform = Transform3D(1, 0, 0, 0, 0.2730695, 0.96199435, 0, -0.96199435, 0.2730695, 0, 0.38879326, 0.12073882)
+current = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1560793871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="NorthWall" type="Node3D" parent="." unique_id=1327432778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, -0.25)
+
+[node name="NorthWallMesh" type="MeshInstance3D" parent="NorthWall" unique_id=1847583625]
+mesh = SubResource("BoxMesh_hjfrq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NorthWall" unique_id=693116780]
+physics_material_override = SubResource("PhysicsMaterial_104ui")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NorthWall/StaticBody3D" unique_id=1048467538]
+shape = SubResource("BoxShape3D_hg7jn")
+
+[node name="EastWall" type="Node3D" parent="." unique_id=1983411541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.075, 0)
+
+[node name="EastWallMesh" type="MeshInstance3D" parent="EastWall" unique_id=1780683608]
+mesh = SubResource("BoxMesh_4fyo4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="EastWall" unique_id=1359009227]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EastWall/StaticBody3D" unique_id=1997986679]
+shape = SubResource("BoxShape3D_g4ovc")
+
+[node name="Floor" type="Node3D" parent="." unique_id=2144568344]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1541743460]
+mesh = SubResource("BoxMesh_hg7jn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=1734602003]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=633037013]
+shape = SubResource("BoxShape3D_4fyo4")
+
+[node name="WestWall" type="Node3D" parent="." unique_id=1325219176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.075, 0)
+
+[node name="WestWallMesh" type="MeshInstance3D" parent="WestWall" unique_id=583837444]
+mesh = SubResource("BoxMesh_4fyo4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WestWall" unique_id=1060913680]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WestWall/StaticBody3D" unique_id=1843013551]
+shape = SubResource("BoxShape3D_g4ovc")
+
+[node name="SouthWall" type="Node3D" parent="." unique_id=1226719330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0.25)
+
+[node name="SouthWallMesh" type="MeshInstance3D" parent="SouthWall" unique_id=673217487]
+mesh = SubResource("BoxMesh_hjfrq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SouthWall" unique_id=1091041949]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SouthWall/StaticBody3D" unique_id=1244886231]
+shape = SubResource("BoxShape3D_hg7jn")
+
+[node name="RollButtons" parent="." unique_id=356784736 instance=ExtResource("3_g4ovc")]
+unique_name_in_owner = true
+offset_left = 1578.0
+offset_top = 37.0
+offset_right = 1579.24
+offset_bottom = 41.0
+scale = Vector2(3, 3)
+
+[node name="DiceManager" type="Node3D" parent="." unique_id=1888221218]
+unique_name_in_owner = true
+script = ExtResource("3_104ui")
+
+[node name="Die1" parent="DiceManager" unique_id=761976980 instance=ExtResource("1_hg7jn")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.089999996, 0.16, 0.08)
+mass = 0.1
+gravity_scale = 0.5
+
+[node name="Die2" parent="DiceManager" unique_id=1223601081 instance=ExtResource("1_hg7jn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0.08)
+mass = 0.1
+gravity_scale = 0.5

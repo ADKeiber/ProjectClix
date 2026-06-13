@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jrdacjp0ihts"
-path.s3tc="res://.godot/imported/bp001.png-dd9e34ec97790417e4133bcd88f795b1.s3tc.ctex"
+uid="uid://dic6qp46u6vpd"
+path.s3tc="res://.godot/imported/dice_d6_low-poly_pbr_2.png-94535025596aeb24cd01158958f004c5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "dce79fb9d4ae104a3bf921ab4a39f438"
+}
 
 [deps]
 
-source_file="res://python/images/bp001.png"
-dest_files=["res://.godot/imported/bp001.png-dd9e34ec97790417e4133bcd88f795b1.s3tc.ctex"]
+source_file="res://assets/dice_d6_low-poly_pbr_2.png"
+dest_files=["res://.godot/imported/dice_d6_low-poly_pbr_2.png-94535025596aeb24cd01158958f004c5.s3tc.ctex"]
 
 [params]
 
@@ -22,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://assets/dice_d6_low-poly_pbr_2.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

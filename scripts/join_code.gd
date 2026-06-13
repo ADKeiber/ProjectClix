@@ -10,7 +10,6 @@ const SECRET_KEY : int = 0x5A3F29C1
 
 static func generate_join_code(ip: String, port: int, session_id: int) -> String:
 	var octets = ip.split(".")
-
 	if octets.size() != 4:
 		printerr("Invalid IP")
 		return ""
@@ -18,24 +17,20 @@ static func generate_join_code(ip: String, port: int, session_id: int) -> String
 		printerr("Invalid Port")
 		return ""
 	var values: Array[int] = []
-
 	for octet in octets:
 		var value = int(octet)
 		if value < 0 or value > 255:
 			printerr("Invalid IP")
 			return ""
 		values.append(value)
-
 	var ip_int : int = 0
-
 	ip_int |= values[0] << 24
 	ip_int |= values[1] << 16
 	ip_int |= values[2] << 8
 	ip_int |= values[3]
-	
 	var encoded_ip : int = ip_int ^ SECRET_KEY
 	var version : int = 1
-
+	
 	# Layout:
 	# [version:8]
 	# [session_id:8]
@@ -43,14 +38,12 @@ static func generate_join_code(ip: String, port: int, session_id: int) -> String
 	# [encoded_ip:32]
 	#
 	# TOTAL = 64 bits
-
+	
 	var payload : int = 0
-
 	payload |= version << 56
 	payload |= session_id << 48
 	payload |= port << 32
 	payload |= encoded_ip
-
 	return int_to_base62(payload)
 
 static func int_to_base62(value: int) -> String:
